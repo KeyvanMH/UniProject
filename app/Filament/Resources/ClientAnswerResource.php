@@ -41,112 +41,9 @@ class ClientAnswerResource extends Resource
         PasswordChangedMiddleware::class
     ];
 
-    public static function form(Form $form): Form
-    {
-        $dbQuery1401 = Dissertation::where('user_id','=',auth()->user()->id)->first();
-        $dbQuery1402 = Dissertation::where('user_id','=',auth()->user()->id)->first();
-        if (isset($dbQuery1401->dissertation_1401)){
-            $flip401 = json_decode($dbQuery1401->dissertation_1401,true);
-            $dissertation1401 = array_flip($flip401);
-            foreach ($dissertation1401 as $key => $value){
-                $dissertation1401[$key] = $flip401[$value];
-            }
-        }
-        if(isset($dbQuery1402->dissertation_1402)){
-            $flip402 =  json_decode($dbQuery1402->dissertation_1402,true);
-            $dissertation1402 = array_flip($flip402);
-            foreach ($dissertation1402 as $key => $value){
-                $dissertation1402[$key] = $flip402[$value];
-            }
-        }
-        return $form
-            ->schema([
-                Forms\Components\TextInput::make('year_1401')->default(0)
-                ->numeric()
-                ->label('مربوط به سال ۱۴۰۱')
-                ->required()
-                ->minValue(0)
-                ->default(0)
-                ->maxValue(100)
-                ->reactive()
-                ->afterStateUpdated(function ($set,$get,$state,$record){
-                    if($record->question->grant == 2){
-                        $set('grant_price',(($get('year_1401')+$get('year_1402'))/2)*$record->question->coefficient*210974088);
-
-                    }elseif($record->question->grant == 1){
-
-                        $set('grant_price',(($get('year_1401')+$get('year_1402'))/2)*$record->question->coefficient*8939580);
-                    }
-                }),
-
-                Forms\Components\TextInput::make('year_1402')
-                ->default(0)
-                ->numeric()
-                ->label('مربوط به سال ۱۴۰۲')
-                ->required()
-                ->minValue(0)
-                ->maxValue(100)
-                ->reactive()
-                ->afterStateUpdated(function ($set,$get,$state,$record){
-                    if($record->question->grant == 2){
-                        $set('grant_price',(($get('year_1401')+$get('year_1402'))/2)*$record->question->coefficient*210974088);
-
-                    }elseif($record->question->grant == 1){
-
-                        $set('grant_price',(($get('year_1401')+$get('year_1402'))/2)*$record->question->coefficient*8939580);
-                    }
-                }),
-
-                Forms\Components\Hidden::make('grant_price')->reactive(),
-                
-                Forms\Components\Select::make('dissertation_1401')
-                    ->options($dissertation1401??null)
-                    ->multiple()
-                    ->visible(fn ($record) => ClientAnswerResource::shouldShowDissertationFields($record))
-                    ->label('پایان نامه های ۱۴۰۱')
-                    ->afterStateUpdated(function ($state, callable $get, callable $set) {
-                        $set('dissertation_1401', $state);
-                    }),
-
-                Forms\Components\Select::make('dissertation_1402')
-                    ->options($dissertation1402??null)
-                    ->multiple()
-                    ->visible(fn ($record) => ClientAnswerResource::shouldShowDissertationFields($record))
-                    ->label('پایان نامه های ۱۴۰۲')
-                    ->afterStateUpdated(function ($state, callable $get, callable $set) {
-                        $set('dissertation_1402', $state);
-                    }),
-
-                Forms\Components\FileUpload::make('image_path_1401')
-                    ->image()
-                    ->maxSize(1000)
-                    ->directory('')
-                    ->visibility('public')
-                    ->afterStateUpdated(function ($state, $record) {
-                        if ($record->image_path_1401 && Storage::disk('public')->exists($record->image_path_1401)) {
-                            Storage::disk('public')->delete($record->image_path_1401);
-                        }
-                    })
-                    ->imageEditor()
-                    ->label('مستندات ۱۴۰۱'),
-
-                Forms\Components\FileUpload::make('image_path_1402')
-                    ->image()
-                    ->visibility('public')
-                    ->maxSize(1000)
-                    ->directory('')
-                    ->afterStateUpdated(function ($record){
-                        if ($record->image_path_1402 && Storage::disk('public')->exists($record->image_path_1402)) {
-                            Storage::disk('public')->delete($record->image_path_1402);
-                        }
-                    })
-                    ->imageEditor()->label('مستندات ۱۴۰۲')
-            ]);
-    }
-    protected static function shouldShowDissertationFields($record) {
-        return in_array($record->question_id,['2_10_1','2_10_2','2_10_3','2_11_1','2_11_2','2_11_3']);
-    }
-
+//    public static function form(Form $form): Form
+//    {
+//    }
     public static function table(Table $table): Table
     {
         return $table
@@ -158,8 +55,16 @@ class ClientAnswerResource extends Resource
                 Tables\Columns\BooleanColumn::make('admin_approval')->label('تاییده کارشناس'),
                 TextColumn::make('admin_response')
                     ->label('نظر کارشناس'),
-                Tables\Columns\ImageColumn::make('image_path_1401')->label('مستندات ۱۴۰۱')->disk('public')->url(fn ($record) => $record->image_path_1401 ? Storage::url($record->image_path_1401) : null)->circular(),
-                Tables\Columns\ImageColumn::make('image_path_1402')->label('مستندات ۱۴۰۲')->disk('public')->url(fn ($record) => $record->image_path_1401 ? Storage::url($record->image_path_1402) : null)->circular(),
+                Tables\Columns\ImageColumn::make('image_path_1401')->label('مستندات ۱۴۰۱')
+                    ->disk('public')
+                    ->url(fn ($record) => $record->image_path_1401 ? Storage::url($record->image_path_1401) : null)
+                    ->circular(),
+
+                Tables\Columns\ImageColumn::make('image_path_1402')->label('مستندات ۱۴۰۲')
+                    ->disk('public')
+                    ->url(fn ($record) => $record->image_path_1401 ? Storage::url($record->image_path_1402) : null)
+                    ->circular(),
+
                 TextColumn::make('dissertation_1401')
                     ->label('پایان نامه های ۱۴۰۱')
                     ->getStateUsing(fn ($record) => json_decode($record->dissertation_1401, true)),
@@ -167,13 +72,13 @@ class ClientAnswerResource extends Resource
                     ->label('پایان نامه های ۱۴۰۲')
                     ->getStateUsing(fn ($record) => json_decode($record->dissertation_1402, true)),
             ])
+            ->recordUrl(null)
             ->filters([
 
             ])
             ->query(function (){
                 return Answer::where('user_id','=',auth()->user()->id);
             })
-//            ->
             ->actions([
                 Tables\Actions\EditAction::make(),
 //                ExportAction::make()->exports([

@@ -29,6 +29,7 @@ return new class extends Migration
             $table->float('year_1402')->default(0);
             $table->float('grant_price')->default(0);
             $table->boolean('admin_approval')->default(0);
+//            $table->enum('admin_approval',['pending','approved','declined'])->default('pending');
             $table->string('image_path_1401')->nullable();
             $table->string('image_path_1402')->nullable();
             $table->json('dissertation_1401')->nullable();//پایان نامه

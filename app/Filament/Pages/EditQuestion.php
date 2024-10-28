@@ -738,11 +738,11 @@ class EditQuestion extends Page implements HasForms
 
                         Section::make([
                             Toggle::make('number_2_25_1401')
-                                ->label('استاد راهنمایی موثر خر انجمن علمی دانشجویی ، فناوری')
+                                ->label('استاد راهنمایی موثر هر انجمن علمی دانشجویی ، فناوری')
                                 ->helperText('امتیاز مربوط به سال ۱۴۰۱')
                                 ,
                             Toggle::make('number_2_25_1402')
-                                ->label('استاد راهنمایی موثر خر انجمن علمی دانشجویی ، فناوری')
+                                ->label('استاد راهنمایی موثر هر انجمن علمی دانشجویی ، فناوری')
                                 ->helperText('امتیاز مربوط به سال ۱۴۰۲')
                                 ,
 
@@ -1701,6 +1701,7 @@ BLADE)))
                             if ($typeIsDescription) {
                                 if ($yearIs1401) {
                                     $answer->dissertation_1401 = json_encode($input,true);
+//                                    $answer->admin_approval = 'pending';
                                     $answer->save();
                                 } elseif ($yearIs1402) {
                                     $answer->dissertation_1402 = json_encode($input,true);

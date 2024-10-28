@@ -76,6 +76,7 @@ class AdminApprovalResource extends Resource
                 TextColumn::make('admin_response')
                     ->label('پاسخ')
             ])
+            ->recordUrl(null)
             ->filters([
                 Tables\Filters\SelectFilter::make('user')->relationship('user','name')->label('هیئت علمی'),
                 Tables\Filters\SelectFilter::make('question')->relationship('question','description')->label('شرح سوال'),
