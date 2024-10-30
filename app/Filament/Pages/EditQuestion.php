@@ -452,6 +452,7 @@ class EditQuestion extends Page implements HasForms
                             ,
 
                         FileUpload::make('image_2_5_1401')
+                            ->multiple()
                             ->label('مستندات')
                             ->image()
                                 ->maxSize(1000)
@@ -461,6 +462,7 @@ class EditQuestion extends Page implements HasForms
                         ,
 
                         FileUpload::make('image_2_5_1402')
+                            ->multiple()
                             ->helperText('مربوط به ۱۴۰۲')
                             ->image()
                                 ->maxSize(1000)
@@ -493,6 +495,7 @@ class EditQuestion extends Page implements HasForms
                             ,
 
                         FileUpload::make('image_2_6_1401')
+                            ->multiple()
                             ->label('مستندات')
                             ->image()
                             ->maxSize(1000)
@@ -501,6 +504,7 @@ class EditQuestion extends Page implements HasForms
                         ,
 
                         FileUpload::make('image_2_6_1402')
+                            ->multiple()
                             ->helperText('مربوط به ۱۴۰۲')
                             ->image()
                                 ->maxSize(1000)
@@ -535,6 +539,7 @@ class EditQuestion extends Page implements HasForms
                             ,
 
                         FileUpload::make('image_2_7_1401')
+                            ->multiple()
                             ->label('مستندات')
                             ->image()
                             ->maxSize(1000)
@@ -543,6 +548,7 @@ class EditQuestion extends Page implements HasForms
                         ,
 
                         FileUpload::make('image_2_7_1402')
+                            ->multiple()
                             ->helperText('مربوط به ۱۴۰۲')
                             ->image()
                             ->maxSize(1000)
@@ -578,6 +584,7 @@ class EditQuestion extends Page implements HasForms
 
 
                         FileUpload::make('image_2_9_1_1401')
+                            ->multiple()
                             ->label('مستندات')
                             ->image()
                                 ->maxSize(1000)
@@ -587,6 +594,7 @@ class EditQuestion extends Page implements HasForms
                         ,
 
                         FileUpload::make('image_2_9_1_1402')
+                            ->multiple()
                             ->helperText('مربوط به ۱۴۰۲')
                             ->image()
                                 ->maxSize(1000)
@@ -623,6 +631,7 @@ class EditQuestion extends Page implements HasForms
                             ,
 
                         FileUpload::make('image_2_9_2_1401')
+                            ->multiple()
                             ->label('مستندات')
                             ->image()
                                 ->maxSize(1000)
@@ -632,6 +641,7 @@ class EditQuestion extends Page implements HasForms
                         ,
 
                         FileUpload::make('image_2_9_2_1402')
+                            ->multiple()
                             ->helperText('مربوط به ۱۴۰۲')
                             ->image()
                                 ->maxSize(1000)
@@ -721,6 +731,7 @@ class EditQuestion extends Page implements HasForms
                                 ,
 
                             FileUpload::make('image_2_24_1401')
+                                ->multiple()
                                 ->label('مستندات')
                                 ->image()
                                 ->maxSize(1000)
@@ -730,6 +741,7 @@ class EditQuestion extends Page implements HasForms
                             ,
 
                             FileUpload::make('image_2_24_1402')
+                                ->multiple()
                                 ->helperText('مربوط به ۱۴۰۲')
                                 ->image()
                                 ->maxSize(1000)
@@ -755,6 +767,7 @@ class EditQuestion extends Page implements HasForms
                                 ,
 
                             FileUpload::make('image_2_25_1401')
+                                ->multiple()
                                 ->label('مستندات')
                                 ->image()
                                 ->maxSize(1000)
@@ -764,6 +777,7 @@ class EditQuestion extends Page implements HasForms
                             ,
 
                             FileUpload::make('image_2_25_1402')
+                                ->multiple()
                                 ->helperText('مربوط به ۱۴۰۲')
                                 ->image()
                                 ->maxSize(1000)
@@ -788,6 +802,7 @@ class EditQuestion extends Page implements HasForms
                                 ,
 
                             FileUpload::make('image_2_26_1401')
+                                ->multiple()
                                 ->label('مستندات')
                                 ->image()
                                 ->maxSize(1000)
@@ -796,6 +811,7 @@ class EditQuestion extends Page implements HasForms
                             ,
 
                             FileUpload::make('image_2_26_1402')
+                                ->multiple()
                                 ->helperText('مربوط به ۱۴۰۲')
                                 ->image()
                                 ->maxSize(1000)
@@ -820,6 +836,7 @@ class EditQuestion extends Page implements HasForms
                                 ,
 
                             FileUpload::make('image_2_27_1401')
+                                ->multiple()
                                 ->label('مستندات')
                                 ->image()
                                 ->maxSize(1000)
@@ -829,6 +846,7 @@ class EditQuestion extends Page implements HasForms
                             ,
 
                             FileUpload::make('image_2_27_1402')
+                                ->multiple()
                                 ->helperText('مربوط به ۱۴۰۲')
                                 ->image()
                                 ->maxSize(1000)
@@ -854,6 +872,7 @@ class EditQuestion extends Page implements HasForms
                                 ,
 
                             FileUpload::make('image_2_28_1401')
+                                ->multiple()
                                 ->label('مستندات')
                                 ->image()
                                 ->maxSize(1000)
@@ -863,6 +882,7 @@ class EditQuestion extends Page implements HasForms
                             ,
 
                             FileUpload::make('image_2_28_1402')
+                                ->multiple()
                                 ->helperText('مربوط به ۱۴۰۲')
                                 ->image()
                                 ->maxSize(1000)
@@ -888,6 +908,7 @@ class EditQuestion extends Page implements HasForms
                                 ,
 
                             FileUpload::make('image_2_29_1401')
+                                ->multiple()
                                 ->label('مستندات')
                                 ->image()
                                 ->maxSize(1000)
@@ -897,6 +918,7 @@ class EditQuestion extends Page implements HasForms
                             ,
 
                             FileUpload::make('image_2_29_1402')
+                                ->multiple()
                                 ->helperText('مربوط به ۱۴۰۲')
                                 ->image()
                                 ->maxSize(1000)
@@ -1051,18 +1073,35 @@ class EditQuestion extends Page implements HasForms
                                 ,
 
                             FileUpload::make('image_2_10_1_1401')
+                                ->multiple()
                                 ->label('مستندات')
                                 ->image()
+                                ->reactive()
                                 ->maxSize(1000)
+                                ->visible(function ($get){
+                                    if(in_array('سایر',$get('description_2_10_1_1401'))){
+                                        return true;
+                                    }else{
+                                        return false;
+                                    }
+                                })
                                 ->helperText('مربوط به سال ۱۴۰۱')
                                 ->imageEditor()
                             ,
 
                             FileUpload::make('image_2_10_1_1402')
+                                ->multiple()
                                 ->helperText('مربوط به ۱۴۰۲')
                                 ->image()
+                                ->reactive()
+                                ->visible(function ($get){
+                                    if(in_array('سایر',$get('description_2_10_1_1402'))){
+                                        return true;
+                                    }else{
+                                        return false;
+                                    }
+                                })
                                 ->maxSize(1000)
-
                                 ->imageEditor()
                                 ->label('مستندات'),
 
@@ -1070,6 +1109,7 @@ class EditQuestion extends Page implements HasForms
                                 ->label('توضیحات')
                                 ->options($result401??null)
                                 ->multiple()
+                                ->reactive()
                                 ->helperText('مربوط به سال ۱۴۰۱(هر پایان نامه می تواند فقط متعلق به یکی از سه زیر شاخه نظری ، میدانی و تجربی باشد.)')
                                 ,
 
@@ -1077,6 +1117,7 @@ class EditQuestion extends Page implements HasForms
                                 ->label('توضیحات')
                                 ->options($result402??null)
                                 ->multiple()
+                                ->reactive()
                                 ->helperText('مربوط به ۱۴۰۲(هر پایان نامه می تواند فقط متعلق به یکی از سه زیر شاخه نظری ، میدانی و تجربی باشد.)')
                                 ,
 
@@ -1084,7 +1125,7 @@ class EditQuestion extends Page implements HasForms
 
                         Section::make([
                             TextInput::make('number_2_10_2_1401')
-                                ->label('تعداد پایان نماه دانشجوی کارشناسی ارشد در پژوهش های میدانی')
+                                ->label('تعداد پایان نامه دانشجوی کارشناسی ارشد در پژوهش های میدانی')
                                 ->required()
                                 ->default(0)
                                 ->helperText('امتیاز مربوط به سال ۱۴۰۱')
@@ -1094,7 +1135,7 @@ class EditQuestion extends Page implements HasForms
 
                                 ,
                             TextInput::make('number_2_10_2_1402')
-                                ->label('تعداد پایان نماه دانشجوی کارشناسی ارشد در پژوهش های میدانی')
+                                ->label('تعداد پایان نامه دانشجوی کارشناسی ارشد در پژوهش های میدانی')
                                 ->required()
                                 ->default(0)
                                 ->helperText('امتیاز مربوط به سال ۱۴۰۲')
@@ -1104,25 +1145,41 @@ class EditQuestion extends Page implements HasForms
                                 ,
 
                             FileUpload::make('image_2_10_2_1401')
+                                ->multiple()
                                 ->label('مستندات')
                                 ->image()
                                 ->maxSize(1000)
-
-                                ->helperText('مربوط به سال ۱۴۰۱')
+                                ->visible(function ($get){
+                                    if(in_array('سایر',$get('description_2_10_2_1401'))){
+                                        return true;
+                                    }else{
+                                        return false;
+                                    }
+                                })                           
+                                     ->helperText('مربوط به سال ۱۴۰۱')
                                 ->imageEditor()
                             ,
 
                             FileUpload::make('image_2_10_2_1402')
+                                ->multiple()
                                 ->helperText('مربوط به ۱۴۰۲')
                                 ->image()
                                 ->maxSize(1000)
                                 ->imageEditor()
+                                ->visible(function ($get){
+                                    if(in_array('سایر',$get('description_2_10_2_1402'))){
+                                        return true;
+                                    }else{
+                                        return false;
+                                    }
+                                })                                
                                 ->label('مستندات'),
 
                             Select::make('description_2_10_2_1401')
                                 ->label('توضیحات')
                                 ->options($result401??null)
                                 ->multiple()
+                                ->reactive()
                                 ->helperText('مربوط به سال ۱۴۰۱(هر پایان نامه می تواند فقط متعلق به یکی از سه زیر شاخه نظری ، میدانی و تجربی باشد.)')
                                 ,
 
@@ -1130,6 +1187,7 @@ class EditQuestion extends Page implements HasForms
                                 ->label('توضیحات')
                                 ->options($result402??null)
                                 ->multiple()
+                                ->reactive()
                                 ->helperText('مربوط به ۱۴۰۲(هر پایان نامه می تواند فقط متعلق به یکی از سه زیر شاخه نظری ، میدانی و تجربی باشد.)')
                                 ,
 
@@ -1137,7 +1195,7 @@ class EditQuestion extends Page implements HasForms
 
                         Section::make([
                             TextInput::make('number_2_10_3_1401')
-                                ->label('تعداد پایان نماه دانشجوی کارشناسی ارشد در پژوهش های تجربی')
+                                ->label('تعداد پایان نامه دانشجوی کارشناسی ارشد در پژوهش های تجربی')
                                 ->required()
                                 ->default(0)
                                 ->helperText('امتیاز مربوط به سال ۱۴۰۱')
@@ -1147,7 +1205,7 @@ class EditQuestion extends Page implements HasForms
 
                                 ,
                             TextInput::make('number_2_10_3_1402')
-                                ->label('تعداد پایان نماه دانشجوی کارشناسی ارشد در پژوهش های تجربی')
+                                ->label('تعداد پایان نامه دانشجوی کارشناسی ارشد در پژوهش های تجربی')
                                 ->required()
                                 ->default(0)
                                 ->helperText('امتیاز مربوط به سال ۱۴۰۲')
@@ -1158,19 +1216,35 @@ class EditQuestion extends Page implements HasForms
                                 ,
 
                             FileUpload::make('image_2_10_3_1401')
+                                ->multiple()
                                 ->label('مستندات')
                                 ->image()
                                 ->maxSize(1000)
-
+                                ->reactive()
+                                ->visible(function ($get){
+                                    if(in_array('سایر',$get('description_2_10_3_1401'))){
+                                        return true;
+                                    }else{
+                                        return false;
+                                    }
+                                })                                
                                 ->helperText('مربوط به سال ۱۴۰۱')
                                 ->imageEditor()
                             ,
 
                             FileUpload::make('image_2_10_3_1402')
+                                ->multiple()
                                 ->helperText('مربوط به ۱۴۰۲')
                                 ->image()
                                 ->maxSize(1000)
-
+                                ->reactive()
+                                ->visible(function ($get){
+                                    if(in_array('سایر',$get('description_2_10_3_1402'))){
+                                        return true;
+                                    }else{
+                                        return false;
+                                    }
+                                })
                                 ->imageEditor()
                                 ->label('مستندات'),
 
@@ -1178,6 +1252,7 @@ class EditQuestion extends Page implements HasForms
                                 ->label('توضیحات')
                                 ->options($result401??null)
                                 ->multiple()
+                                ->reactive()
                                 ->helperText('مربوط به سال ۱۴۰۱(هر پایان نامه می تواند فقط متعلق به یکی از سه زیر شاخه نظری ، میدانی و تجربی باشد.)')
                                 ,
 
@@ -1185,6 +1260,7 @@ class EditQuestion extends Page implements HasForms
                                 ->label('توضیحات')
                                 ->options($result402??null)
                                 ->multiple()
+                                ->reactive()
                                 ->helperText('مربوط به ۱۴۰۲(هر پایان نامه می تواند فقط متعلق به یکی از سه زیر شاخه نظری ، میدانی و تجربی باشد.)')
                                 ,
 
@@ -1212,19 +1288,35 @@ class EditQuestion extends Page implements HasForms
                                 ,
 
                             FileUpload::make('image_2_11_1_1401')
+                                ->multiple()
                                 ->label('مستندات')
                                 ->image()
                                 ->maxSize(1000)
-
+                                ->reactive()
+                                ->visible(function ($get){
+                                    if(in_array('سایر',$get('description_2_11_1_1401'))){
+                                        return true;
+                                    }else{
+                                        return false;
+                                    }
+                                })
                                 ->helperText('مربوط به سال ۱۴۰۱')
                                 ->imageEditor()
                             ,
 
                             FileUpload::make('image_2_11_1_1402')
+                                ->multiple()
                                 ->helperText('مربوط به ۱۴۰۲')
                                 ->image()
                                 ->maxSize(1000)
-
+                                ->reactive()
+                                ->visible(function ($get){
+                                    if(in_array('سایر',$get('description_2_11_1_1402'))){
+                                        return true;
+                                    }else{
+                                        return false;
+                                    }
+                                })
                                 ->imageEditor()
                                 ->label('مستندات'),
 
@@ -1232,6 +1324,7 @@ class EditQuestion extends Page implements HasForms
                                 ->label('توضیحات')
                             ->options($doctorResult401??null)
                                 ->multiple()
+                                ->reactive()
                                 ->helperText('مربوط به سال ۱۴۰۱(هر پایان نامه می تواند فقط متعلق به یکی از سه زیر شاخه نظری ، میدانی و تجربی باشد.)')
                                 ,
 
@@ -1239,6 +1332,7 @@ class EditQuestion extends Page implements HasForms
                                 ->label('توضیحات')
                             ->options($doctorResult402??null)
                                 ->multiple()
+                                ->reactive()
                                 ->helperText('مربوط به ۱۴۰۲(هر پایان نامه می تواند فقط متعلق به یکی از سه زیر شاخه نظری ، میدانی و تجربی باشد.)')
                                 ,
 
@@ -1268,19 +1362,35 @@ class EditQuestion extends Page implements HasForms
                                 ,
 
                             FileUpload::make('image_2_11_2_1401')
+                                ->multiple()
                                 ->label('مستندات')
                                 ->image()
                                 ->maxSize(1000)
-
+                                ->reactive()
+                                ->visible(function ($get){
+                                    if(in_array('سایر',$get('description_2_11_2_1401'))){
+                                        return true;
+                                    }else{
+                                        return false;
+                                    }
+                                })
                                 ->helperText('مربوط به سال ۱۴۰۱')
                                 ->imageEditor()
                             ,
 
                             FileUpload::make('image_2_11_2_1402')
+                                ->multiple()
                                 ->helperText('مربوط به ۱۴۰۲')
                                 ->image()
                                 ->maxSize(1000)
-
+                                ->reactive()
+                                ->visible(function ($get){
+                                    if(in_array('سایر',$get('description_2_11_2_1402'))){
+                                        return true;
+                                    }else{
+                                        return false;
+                                    }
+                                })                                
                                 ->imageEditor()
                                 ->label('مستندات'),
 
@@ -1288,6 +1398,7 @@ class EditQuestion extends Page implements HasForms
                                 ->label('توضیحات')
                                 ->options($doctorResult401??null)
                                 ->multiple()
+                                ->reactive()
                                 ->helperText('مربوط به سال ۱۴۰۱(هر پایان نامه می تواند فقط متعلق به یکی از سه زیر شاخه نظری ، میدانی و تجربی باشد.)')
                                 ,
 
@@ -1295,6 +1406,7 @@ class EditQuestion extends Page implements HasForms
                                 ->label('توضیحات')
                                 ->options($doctorResult402??null)
                                 ->multiple()
+                                ->reactive()
                                 ->helperText('مربوط به ۱۴۰۲(هر پایان نامه می تواند فقط متعلق به یکی از سه زیر شاخه نظری ، میدانی و تجربی باشد.)')
                                 ,
 
@@ -1322,25 +1434,42 @@ class EditQuestion extends Page implements HasForms
                                 ,
 
                             FileUpload::make('image_2_11_3_1401')
+                                ->multiple()
                                 ->label('مستندات')
                                 ->image()
                                 ->maxSize(1000)
-
+                                ->reactive()
+                                ->visible(function ($get){
+                                    if(in_array('سایر',$get('description_2_11_3_1401'))){
+                                        return true;
+                                    }else{
+                                        return false;
+                                    }
+                                })
                                 ->helperText('مربوط به سال ۱۴۰۱')
                                 ->imageEditor()
                             ,
 
                             FileUpload::make('image_2_11_3_1402')
+                                ->multiple()
                                 ->label('مستندات')
                                 ->image()
                                 ->maxSize(1000)
-
+                                ->reactive()
+                                ->visible(function ($get){
+                                    if(in_array('سایر',$get('description_2_11_3_1402'))){
+                                        return true;
+                                    }else{
+                                        return false;
+                                    }
+                                })
                                 ->helperText('مربوط به ۱۴۰۲')
                                 ->imageEditor(),
 
                             Select::make('description_2_11_3_1401')
                                 ->label('توضیحات')
                                 ->options($doctorResult401??null)
+                                ->reactive()
                                 ->multiple()
                                 ->helperText('مربوط به سال ۱۴۰۱(هر پایان نامه می تواند فقط متعلق به یکی از سه زیر شاخه نظری ، میدانی و تجربی باشد.)')
                                 ,
@@ -1349,6 +1478,7 @@ class EditQuestion extends Page implements HasForms
                                 ->label('توضیحات')
                                 ->options($doctorResult402??null)
                                 ->multiple()
+                                ->reactive()
                                 ->helperText('مربوط به ۱۴۰۲(هر پایان نامه می تواند فقط متعلق به یکی از سه زیر شاخه نظری ، میدانی و تجربی باشد.)')
                                 ,
 
@@ -1378,6 +1508,7 @@ class EditQuestion extends Page implements HasForms
                                 ,
 
                             FileUpload::make('image_2_20_1401')
+                                ->multiple()
                                 ->label('مستندات')
                                 ->image()
                                 ->maxSize(1000)
@@ -1387,6 +1518,7 @@ class EditQuestion extends Page implements HasForms
                             ,
 
                             FileUpload::make('image_2_20_1402')
+                                ->multiple()
                                 ->helperText('مربوط به ۱۴۰۲')
                                 ->image()
                                 ->maxSize(1000)
@@ -1416,6 +1548,7 @@ class EditQuestion extends Page implements HasForms
                                 ,
 
                             FileUpload::make('image_3_3_2_1401')
+                                ->multiple()
                                 ->label('مستندات')
                                 ->image()
                                 ->maxSize(1000)
@@ -1423,6 +1556,7 @@ class EditQuestion extends Page implements HasForms
                                 ->imageEditor(),
 
                             FileUpload::make('image_3_3_2_1402')
+                                ->multiple()
                                 ->helperText('مربوط به ۱۴۰۲')
                                 ->image()
                                 ->maxSize(1000)
@@ -1450,6 +1584,7 @@ class EditQuestion extends Page implements HasForms
                                 ->required()
                             ,
                             FileUpload::make('image_2_36_1401')
+                                ->multiple()
                                 ->label('مستندات')
                                 ->image()
                                 ->maxSize(1000)
@@ -1457,6 +1592,7 @@ class EditQuestion extends Page implements HasForms
                                 ->imageEditor()
                             ,
                             FileUpload::make('image_2_36_1402')
+                                ->multiple()
                                 ->helperText('مربوط به ۱۴۰۲')
                                 ->image()
                                 ->maxSize(1000)
@@ -1485,6 +1621,7 @@ class EditQuestion extends Page implements HasForms
                                 ->required()
                             ,
                             FileUpload::make('image_2_37_1401')
+                                ->multiple()
                                 ->label('مستندات')
                                 ->image()
                                 ->maxSize(1000)
@@ -1492,6 +1629,7 @@ class EditQuestion extends Page implements HasForms
                                 ->imageEditor()
                             ,
                             FileUpload::make('image_2_37_1402')
+                                ->multiple()
                                 ->helperText('مربوط به ۱۴۰۲')
                                 ->image()
                                 ->maxSize(1000)
@@ -1520,6 +1658,7 @@ class EditQuestion extends Page implements HasForms
                                 ->required()
                             ,
                             FileUpload::make('image_2_38_1401')
+                                ->multiple()
                                 ->label('مستندات')
                                 ->image()
                                 ->maxSize(1000)
@@ -1527,6 +1666,7 @@ class EditQuestion extends Page implements HasForms
                                 ->imageEditor()
                             ,
                             FileUpload::make('image_2_38_1402')
+                                ->multiple()
                                 ->helperText('مربوط به ۱۴۰۲')
                                 ->image()
                                 ->maxSize(1000)
@@ -1661,13 +1801,21 @@ BLADE)))
                                     $created = Answer::create([
                                         'user_id' => auth()->user()->id,
                                         'question_id' => $number_code,
-                                        'image_path_1401' => $input
                                     ]);
+                                    foreach($input as $image){
+                                        $created->images()->create([
+                                            'year' => '1401',
+                                            'image_path' => $image
+                                        ]);
+                                    }
                                 } elseif ($yearIs1402) {
                                     $created = Answer::create([
                                         'user_id' => auth()->user()->id,
                                         'question_id' => $number_code,
-                                        'image_path_1401' => $input
+                                    ]);
+                                    $created->images()->create([
+                                        'year' => '1402',
+                                        'image_path' => $image
                                     ]);
                                 }
                             } elseif ($typeIsNumber) {
@@ -1709,7 +1857,6 @@ BLADE)))
                             if ($typeIsDescription) {
                                 if ($yearIs1401) {
                                     $answer->dissertation_1401 = json_encode($input,true);
-//                                    $answer->admin_approval = 'pending';
                                     $answer->save();
                                 } elseif ($yearIs1402) {
                                     $answer->dissertation_1402 = json_encode($input,true);
@@ -1717,24 +1864,21 @@ BLADE)))
                                 }
                             } elseif ($typeIsImage) {
                                 if ($yearIs1401) {
-                                    if ($answer->image_path_1401) {
-                                        //delete image
-                                        if (Storage::disk('public')->exists($answer->image_path_1401)) {
-                                            Storage::disk('public')->delete($answer->image_path_1401);
-                                        }
+                                    foreach ($input as $image) {
+                                        $answer->images()->create([
+                                            'year' => '1401',
+                                            'image_path' => $image
+                                        ]);
                                     }
-                                    $answer->image_path_1401 = $input;
-                                    $answer->save();
-                                } elseif ($yearIs1402) {
-                                    if ($answer->image_path_1402) {
-                                        //delete image
-                                        if (Storage::disk('public')->exists($answer->image_path_1402)) {
-                                            Storage::disk('public')->delete($answer->image_path_1402);
-                                        }
-                                    }
-                                    $answer->image_path_1402 = $input;
-                                    $answer->save();
+                            } elseif ($yearIs1402) {
+                                foreach ($input as $image) {
+                                    $answer->images()->create([
+                                        'year' => '1402',
+                                        'image_path' => $image
+                                    ]);
                                 }
+                            }
+                                
                             } elseif ($typeIsNumber) {
                                 if ($yearIs1401) {
                                     $answer->year_1401 = $input;
@@ -1873,17 +2017,17 @@ BLADE)))
     }
     public static function canAccess(): bool
     {
-        return auth()->user()->role == 'user' and !Hash::check(auth()->user()->national_code, auth()->user()->password) and !auth()->user()->is_form_filled;
+        return auth()->user()->role == 'user' and !Hash::check(auth()->user()->national_code, auth()->user()->password) and !auth()->user()->first_time_form_filled;
     }
 
     public static function canViewAny(): bool
     {
-        return auth()->user()->role == 'user' and !Hash::check(auth()->user()->national_code, auth()->user()->password) and !auth()->user()->is_form_filled;
+        return auth()->user()->role == 'user' and !Hash::check(auth()->user()->national_code, auth()->user()->password) and !auth()->user()->first_time_form_filled;
     }
 
     public static function canView(Model $record): bool
     {
-        return auth()->user()->role == 'user' and !Hash::check(auth()->user()->national_code, auth()->user()->password) and !auth()->user()->is_form_filled;
+        return auth()->user()->role == 'user' and !Hash::check(auth()->user()->national_code, auth()->user()->password) and !auth()->user()->first_time_form_filled;
     }
 
 }

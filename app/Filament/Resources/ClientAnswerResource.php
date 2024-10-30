@@ -32,8 +32,8 @@ use pxlrbt\FilamentExcel\Exports\ExcelExport;
 class ClientAnswerResource extends Resource
 {
     protected static ?string $model = Answer::class;
-    protected static ?string $pluralLabel = 'وضعیت فرم پژوهانه';
-    protected static ?string $label = 'وضعیت فرم پژوهانه';
+    protected static ?string $pluralLabel = 'ویرایش فرم پژوهانه';
+    protected static ?string $label = 'ویرایش فرم پژوهانه';
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
     protected static string | array $routeMiddleware = [
         UserMiddleware::class,
@@ -55,15 +55,23 @@ class ClientAnswerResource extends Resource
                 Tables\Columns\BooleanColumn::make('admin_approval')->label('تاییده کارشناس'),
                 TextColumn::make('admin_response')
                     ->label('نظر کارشناس'),
-                Tables\Columns\ImageColumn::make('image_path_1401')->label('مستندات ۱۴۰۱')
+                Tables\Columns\ImageColumn::make('images401.image_path')->label('مستندات ۱۴۰۱')
                     ->disk('public')
-                    ->url(fn ($record) => $record->image_path_1401 ? Storage::url($record->image_path_1401) : null)
+                    // ->url(function($record){
+                    //     if($record->image402){
+                    //        Storage::url($record->image401()->where('image_path','!=',null)->get());
+                    //     }
+                    // })
                     ->circular()
                     ->toggleable(isToggledHiddenByDefault: false),
 
-                Tables\Columns\ImageColumn::make('image_path_1402')->label('مستندات ۱۴۰۲')
+                Tables\Columns\ImageColumn::make('images402.image_path')->label('مستندات ۱۴۰۲')
                     ->disk('public')
-                    ->url(fn ($record) => $record->image_path_1401 ? Storage::url($record->image_path_1402) : null)
+                    // ->url(function($record){
+                    //     if($record->image402){
+                    //         Storage::url($record->image402()->where('image_path','!=',null)->get());
+                    //     }
+                    // })
                     ->circular()
                     ->toggleable(isToggledHiddenByDefault: false),
 

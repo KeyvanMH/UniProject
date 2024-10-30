@@ -17,6 +17,10 @@ use Filament\Forms\Form;
 use Filament\Panel;
 use Filament\Resources\Pages\EditRecord;
 use Illuminate\Support\Facades\Storage;
+use App\Models\Image;
+use Filament\Forms\Components\Section;
+use Filament\Forms\Components\Repeater;
+use App\Models\DissertationDoctor;
 
 class EditClientAnswer extends EditRecord {
     protected static string $resource = ClientAnswerResource::class;
@@ -48,6 +52,7 @@ class EditClientAnswer extends EditRecord {
     }
     public function form(Form $form): Form {
         $this->numberInput();
+        info($this->data);
         return $form
             ->schema([
                 $this->firstFormInput,
@@ -55,7 +60,9 @@ class EditClientAnswer extends EditRecord {
                 Hidden::make('grant_price')->reactive(),
 
                 Select::make('dissertation_1401')
-                    ->options(EditClientAnswer::dissertation1401()??null)
+                    ->options(function($record){
+                        return $this->dessertationType($record)?EditClientAnswer::dissertation1401():EditClientAnswer::doctorDissertation1401();
+                    })
                     ->multiple()
                     ->visible(fn ($record) => EditClientAnswer::shouldShowDissertationFields($record))
                     ->label('پایان نامه های ۱۴۰۱')
@@ -64,7 +71,9 @@ class EditClientAnswer extends EditRecord {
                     }),
 
                 Select::make('dissertation_1402')
-                    ->options(EditClientAnswer::dissertation1402()??null)
+                    ->options(function ($record){
+                        return $this->dessertationType($record)?EditClientAnswer::dissertation1402():EditClientAnswer::doctorDissertation1402();
+                    })
                     ->multiple()
                     ->visible(fn ($record) => EditClientAnswer::shouldShowDissertationFields($record))
                     ->label('پایان نامه های ۱۴۰۲')
@@ -72,30 +81,48 @@ class EditClientAnswer extends EditRecord {
                         $set('dissertation_1402', $state);
                     }),
 
-                FileUpload::make('image_path_1401')
+                    Repeater::make('image401')
+                    ->label('مستندات')
+                    ->maxItems(5)
+                    ->relationship('images401')
+                    ->schema([
+                        FileUpload::make('image_path')
+                            ->image()
+                            ->maxSize(1000)
+                            ->directory('')
+                            ->visibility('public')
+                            ->afterStateUpdated(function ($record,$state){
+                                if($record->images->image_path && Storage::disk('public')->exists($record->images->image_path)){
+                                    Storage::disk('public')->delete($record->images());
+                                }
+                            })
+                            ->imageEditor()
+                            ->label('مستندات ۱۴۰۱'),
+                            Hidden::make('year')->default('1401')
+                ]),
+
+                //TODO  old answer visible
+
+                Repeater::make('images402')
+                
+                ->relationship('images402')
+                ->label('مستندات')
+                ->maxItems(5)
+                ->schema([
+                    FileUpload::make('image_path')
                     ->image()
+                    ->visibility('public')
                     ->maxSize(1000)
                     ->directory('')
-                    ->visibility('public')
-                    ->afterStateUpdated(function ($state, $record) {
-                        if ($record->image_path_1401 && Storage::disk('public')->exists($record->image_path_1401)) {
-                            Storage::disk('public')->delete($record->image_path_1401);
+                    ->afterStateUpdated(function ($record,$state){
+                        if($record->image_path && Storage::disk('public')->exists($record->image_path)){
+                            Storage::disk('public')->delete($record);
                         }
                     })
                     ->imageEditor()
-                    ->label('مستندات ۱۴۰۱'),
-
-                FileUpload::make('image_path_1402')
-                    ->image()
-                    ->visibility('public')
-                    ->maxSize(1000)
-                    ->directory('')
-                    ->afterStateUpdated(function ($record){
-                        if ($record->image_path_1402 && Storage::disk('public')->exists($record->image_path_1402)) {
-                            Storage::disk('public')->delete($record->image_path_1402);
-                        }
-                    })
-                    ->imageEditor()->label('مستندات ۱۴۰۲')
+                    ->label('مستندات ۱۴۰۲'),
+                    Hidden::make('year')->default('1402')
+                ])
             ]);
     }
 
@@ -173,24 +200,55 @@ class EditClientAnswer extends EditRecord {
             foreach ($dissertation1401 as $key => $value){
                 $dissertation1401[$key] = $flip401[$value];
             }
-            return $dissertation1401;
+            $dissertation1401['سایر'] = 'سایر';
         }
-        return null;
+        return $dissertation1401;
+    }
+    protected static function doctorDissertation1401() {
+        $dbQuery1401 = DissertationDoctor::where('user_id','=',auth()->user()->id)->first();
+        $dissertation1401['سایر'] = 'سایر';
+        if (isset($dbQuery1401->dissertation_1401)){
+            $flip401 = json_decode($dbQuery1401->dissertation_1401,true);
+            $dissertation1401 = array_flip($flip401);
+            foreach ($dissertation1401 as $key => $value){
+                $dissertation1401[$key] = $flip401[$value];
+            }
+        }
+        return $dissertation1401;
     }
     protected static function dissertation1402() {
         $dbQuery1402 = Dissertation::where('user_id','=',auth()->user()->id)->first();
+        $dissertation1402['سایر'] = 'سایر';
         if(isset($dbQuery1402->dissertation_1402)){
             $flip402 =  json_decode($dbQuery1402->dissertation_1402,true);
             $dissertation1402 = array_flip($flip402);
             foreach ($dissertation1402 as $key => $value){
                 $dissertation1402[$key] = $flip402[$value];
             }
-            return $dissertation1402;
         }
-        return null;
+        return $dissertation1402;
+    }
+    protected static function doctorDissertation1402() {
+        $dbQuery1402 = DissertationDoctor::where('user_id','=',auth()->user()->id)->first();
+        $dissertation1402['سایر'] = 'سایر';
+        if(isset($dbQuery1402->dissertation_1402)){
+            $flip402 =  json_decode($dbQuery1402->dissertation_1402,true);
+            $dissertation1402 = array_flip($flip402);
+            foreach ($dissertation1402 as $key => $value){
+                $dissertation1402[$key] = $flip402[$value];
+            }
+        }
+        return $dissertation1402;
     }
     protected static function shouldShowDissertationFields($record) {
         return in_array($record->question_id,['2_10_1','2_10_2','2_10_3','2_11_1','2_11_2','2_11_3']);
     }
 
+    protected function dessertationType($record){
+        if (in_array($record->question_id,['2_10_1','2_10_2','2_10_3'])) {
+            $this->dessertationType = true;
+        }else{
+            $this->dessertationType = false;
+        }
+    }
 }

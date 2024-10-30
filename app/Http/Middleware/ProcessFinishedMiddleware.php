@@ -15,7 +15,7 @@ class ProcessFinishedMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(auth()->user()->is_form_filled){
+        if(auth()->user()->first_time_form_filled){
             abort(403,'Unathorized action');
         }
         return $next($request);

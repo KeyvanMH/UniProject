@@ -16,4 +16,14 @@ class Answer extends Model
     public function question() {
         return $this->belongsTo(Question::class,'question_id','number_code');
     }
+    public function images(){
+        return $this->hasMany(Image::class);
+    }
+    public function images401(){
+        return $this->images()->where('year','=','1401');
+    }
+    public function images402(){
+        return $this->images()->where('year','=','1402');
+    }
+
 }
