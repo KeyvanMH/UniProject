@@ -57,22 +57,16 @@ class ClientAnswerResource extends Resource
                     ->label('نظر کارشناس'),
                 Tables\Columns\ImageColumn::make('images401.image_path')->label('مستندات ۱۴۰۱')
                     ->disk('public')
-                    // ->url(function($record){
-                    //     if($record->image402){
-                    //        Storage::url($record->image401()->where('image_path','!=',null)->get());
-                    //     }
-                    // })
+                    // ->url(fn ($record) => $record->images->image_path ? Storage::url($record->images->image_path) : null)
                     ->circular()
+                    ->wrap()
                     ->toggleable(isToggledHiddenByDefault: false),
 
                 Tables\Columns\ImageColumn::make('images402.image_path')->label('مستندات ۱۴۰۲')
                     ->disk('public')
-                    // ->url(function($record){
-                    //     if($record->image402){
-                    //         Storage::url($record->image402()->where('image_path','!=',null)->get());
-                    //     }
-                    // })
+                    // ->url(fn ($record) => $record->images->image_path ? Storage::url($record->images->image_path) : null)
                     ->circular()
+                    ->wrap()
                     ->toggleable(isToggledHiddenByDefault: false),
 
                 TextColumn::make('dissertation_1401')
@@ -85,6 +79,8 @@ class ClientAnswerResource extends Resource
                     ->formatStateUsing(fn ($record,$state) => implode("</br>",json_decode($record->dissertation_1402, true)))
                     ->html()
                     ->toggleable(isToggledHiddenByDefault: true),
+                 
+
             ])
             ->recordUrl(null)
             ->filters([

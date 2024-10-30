@@ -33,7 +33,6 @@ class EditClientAnswer extends EditRecord {
      * @return string|null
      */
     public function getHeading(): \Illuminate\Contracts\Support\Htmlable|string {
-        info($this->getRecord());
         return $this->getRecord()->question->description;
     }
     protected function getActions(): array
@@ -58,7 +57,12 @@ class EditClientAnswer extends EditRecord {
                 $this->firstFormInput,
                 $this->secondFormInput,
                 Hidden::make('grant_price')->reactive(),
-
+                // TextInput::make('dissertation_answer')
+                // ->disabled()
+                // ->label('پایان نامه های فعلی')
+                // ->visible(fn ($record) => EditClientAnswer::shouldShowDissertationFields($record))
+                // ->placeholder('تست')
+                // ->columnSpanFull(),
                 Select::make('dissertation_1401')
                     ->options(function($record){
                         return $this->dessertationType($record)?EditClientAnswer::dissertation1401():EditClientAnswer::doctorDissertation1401();
@@ -80,7 +84,7 @@ class EditClientAnswer extends EditRecord {
                     ->afterStateUpdated(function ($state, callable $get, callable $set) {
                         $set('dissertation_1402', $state);
                     }),
-
+                    
                     Repeater::make('image401')
                     ->label('مستندات')
                     ->maxItems(5)
@@ -92,7 +96,7 @@ class EditClientAnswer extends EditRecord {
                             ->directory('')
                             ->visibility('public')
                             ->afterStateUpdated(function ($record,$state){
-                                if($record->images->image_path && Storage::disk('public')->exists($record->images->image_path)){
+                                if(isset($record->images->image_path) && Storage::disk('public')->exists($record->images->image_path)){
                                     Storage::disk('public')->delete($record->images());
                                 }
                             })
@@ -115,7 +119,7 @@ class EditClientAnswer extends EditRecord {
                     ->maxSize(1000)
                     ->directory('')
                     ->afterStateUpdated(function ($record,$state){
-                        if($record->image_path && Storage::disk('public')->exists($record->image_path)){
+                        if(isset($record->image_path) && Storage::disk('public')->exists($record->image_path)){
                             Storage::disk('public')->delete($record);
                         }
                     })
