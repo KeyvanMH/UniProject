@@ -53,16 +53,18 @@ class AdminApprovalResource extends Resource
                 Tables\Columns\TextColumn::make('year_1401')->label('سال ۱۴۰۱'),
                 Tables\Columns\TextColumn::make('year_1402')->label('سال ۱۴۰۲'),
                 TextColumn::make('grant_price')->label('مبلغ پژوهانه')->money('rial'),
-                Tables\Columns\ImageColumn::make('image_path_1401')->label('مستندات ۱۴۰۱')->disk('public')->url(fn ($record) => $record->image_path_1401 ? Storage::url($record->image_path_1401) : null)->circular(),
-                Tables\Columns\ImageColumn::make('image_path_1402')->label('مستندات ۱۴۰۲')->disk('public')->url(fn ($record) => $record->image_path_1401 ? Storage::url($record->image_path_1402) : null)->circular(),
+                Tables\Columns\ImageColumn::make('image_path_1401')->label('مستندات ۱۴۰۱')->disk('public')->url(fn ($record) => $record->image_path_1401 ? Storage::url($record->image_path_1401) : null)->circular()->toggleable(isToggledHiddenByDefault: false),
+                Tables\Columns\ImageColumn::make('image_path_1402')->label('مستندات ۱۴۰۲')->disk('public')->url(fn ($record) => $record->image_path_1401 ? Storage::url($record->image_path_1402) : null)->circular()->toggleable(isToggledHiddenByDefault: false),
                 TextColumn::make('dissertation_1401')
                     ->label('پایان نامه های ۱۴۰۱')
                     ->formatStateUsing(fn ($record,$state) => implode("</br>",json_decode($record->dissertation_1401, true)))
-                    ->html(),
+                    ->html()
+                    ->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('dissertation_1402')
                     ->label('پایان نامه های ۱۴۰۲')
                     ->formatStateUsing(fn ($record,$state) => implode("</br>",json_decode($record->dissertation_1402, true)))
-                    ->html(),
+                    ->html()
+                    ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\BooleanColumn::make('admin_approval')
                     ->label('تاییده کارشناس')
                     ->sortable()
@@ -71,6 +73,8 @@ class AdminApprovalResource extends Resource
                         $record->update([
                             $name => !$record->$name
                         ]);
+                        //TODO change form filled in user model
+
                         //TODO result table
                     }),
                 TextColumn::make('admin_response')

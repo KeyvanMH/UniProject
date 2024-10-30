@@ -58,19 +58,25 @@ class ClientAnswerResource extends Resource
                 Tables\Columns\ImageColumn::make('image_path_1401')->label('مستندات ۱۴۰۱')
                     ->disk('public')
                     ->url(fn ($record) => $record->image_path_1401 ? Storage::url($record->image_path_1401) : null)
-                    ->circular(),
+                    ->circular()
+                    ->toggleable(isToggledHiddenByDefault: false),
 
                 Tables\Columns\ImageColumn::make('image_path_1402')->label('مستندات ۱۴۰۲')
                     ->disk('public')
                     ->url(fn ($record) => $record->image_path_1401 ? Storage::url($record->image_path_1402) : null)
-                    ->circular(),
+                    ->circular()
+                    ->toggleable(isToggledHiddenByDefault: false),
 
                 TextColumn::make('dissertation_1401')
                     ->label('پایان نامه های ۱۴۰۱')
-                    ->getStateUsing(fn ($record) => json_decode($record->dissertation_1401, true)),
+                    ->formatStateUsing(fn ($record,$state) => implode("</br>",json_decode($record->dissertation_1401, true)))
+                    ->html()
+                    ->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('dissertation_1402')
                     ->label('پایان نامه های ۱۴۰۲')
-                    ->getStateUsing(fn ($record) => json_decode($record->dissertation_1402, true)),
+                    ->formatStateUsing(fn ($record,$state) => implode("</br>",json_decode($record->dissertation_1402, true)))
+                    ->html()
+                    ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->recordUrl(null)
             ->filters([

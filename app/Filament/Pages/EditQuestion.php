@@ -371,7 +371,7 @@ class EditQuestion extends Page implements HasForms
     protected static string | array $routeMiddleware = [
         UserMiddleware::class,
         PasswordChangedMiddleware::class,
-        //when the admin decides , the form filled gets 1 and user can see this page anymore
+        //when the admin decides , the form filled gets 1 and user cant see this page anymore
         ProcessFinishedMiddleware::class,
     ];
 
@@ -396,6 +396,8 @@ class EditQuestion extends Page implements HasForms
                 $result401[$key] = $unFlip401[$value];
             }
         }
+        $result401['سایر'] = 'سایر';
+
         if(!empty($dissertations->dissertation_1402)) {
             $unFlip402 = json_decode($dissertations->dissertation_1402,true);
             $result402 = array_flip($unFlip402);
@@ -403,6 +405,8 @@ class EditQuestion extends Page implements HasForms
                 $result402[$key] = $unFlip402[$value];
             }
         }
+        $result402['سایر'] = 'سایر';
+        
         $doctorDissertations = DissertationDoctor::where('user_id','=',auth()->user()->id)->first();
         if(!empty($doctorDissertations->dissertation_1401)){
             $unFlip401 = json_decode($dissertations->dissertation_1401,true);
@@ -411,6 +415,8 @@ class EditQuestion extends Page implements HasForms
                 $doctorResult401[$key] = $unFlip401[$value];
             }
         }
+        $doctorResult401['سایر'] = 'سایر';
+
         if(!empty($doctorDissertations->dissertation_1402)) {
             $unFlip402 = json_decode($doctorDissertations->dissertation_1402,true);
             $doctorResult402 = array_flip($unFlip402);
@@ -418,6 +424,8 @@ class EditQuestion extends Page implements HasForms
                 $doctorResult402[$key] = $unFlip402[$value];
             }
         }
+        $doctorResult402['سایر'] = 'سایر';
+
         return $form->schema([
             Wizard::make([
                 Wizard\Step::make('سئوالات امتیازی')
