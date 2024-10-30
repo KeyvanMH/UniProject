@@ -1072,38 +1072,6 @@ class EditQuestion extends Page implements HasForms
                                 ->maxValue(100)
                                 ,
 
-                            FileUpload::make('image_2_10_1_1401')
-                                ->multiple()
-                                ->label('مستندات')
-                                ->image()
-                                ->reactive()
-                                ->maxSize(1000)
-                                ->visible(function ($get){
-                                    if(in_array('سایر',$get('description_2_10_1_1401'))){
-                                        return true;
-                                    }else{
-                                        return false;
-                                    }
-                                })
-                                ->helperText('مربوط به سال ۱۴۰۱')
-                                ->imageEditor()
-                            ,
-
-                            FileUpload::make('image_2_10_1_1402')
-                                ->multiple()
-                                ->helperText('مربوط به ۱۴۰۲')
-                                ->image()
-                                ->reactive()
-                                ->visible(function ($get){
-                                    if(in_array('سایر',$get('description_2_10_1_1402'))){
-                                        return true;
-                                    }else{
-                                        return false;
-                                    }
-                                })
-                                ->maxSize(1000)
-                                ->imageEditor()
-                                ->label('مستندات'),
 
                             Select::make('description_2_10_1_1401')
                                 ->label('توضیحات')
@@ -1120,6 +1088,42 @@ class EditQuestion extends Page implements HasForms
                                 ->reactive()
                                 ->helperText('مربوط به ۱۴۰۲(هر پایان نامه می تواند فقط متعلق به یکی از سه زیر شاخه نظری ، میدانی و تجربی باشد.)')
                                 ,
+                                
+                            FileUpload::make('image_2_10_1_1401')
+                            ->multiple()
+                            ->label('مستندات')
+                            ->image()
+                            ->reactive()
+                            ->columnSpanFull()
+                            ->maxSize(1000)
+                            ->visible(function ($get){
+                                if(in_array('سایر',$get('description_2_10_1_1401'))){
+                                    return true;
+                                }else{
+                                    return false;
+                                }
+                            })
+                            ->helperText('مربوط به سال ۱۴۰۱')
+                            ->imageEditor()
+                        ,
+
+                        FileUpload::make('image_2_10_1_1402')
+                            ->multiple()
+                            ->helperText('مربوط به ۱۴۰۲')
+                            ->image()
+                            ->reactive()
+                            ->columnSpanFull()
+
+                            ->visible(function ($get){
+                                if(in_array('سایر',$get('description_2_10_1_1402'))){
+                                    return true;
+                                }else{
+                                    return false;
+                                }
+                            })
+                            ->maxSize(1000)
+                            ->imageEditor()
+                            ->label('مستندات'),
 
                         ])->columns(2)->description('شماره بند آیین نامه : ۱-۱۰-۲'),
 
@@ -1142,38 +1146,7 @@ class EditQuestion extends Page implements HasForms
                                 ->numeric()
                                 ->minValue(0)
                                 ->maxValue(100)
-                                ,
-
-                            FileUpload::make('image_2_10_2_1401')
-                                ->multiple()
-                                ->label('مستندات')
-                                ->image()
-                                ->maxSize(1000)
-                                ->visible(function ($get){
-                                    if(in_array('سایر',$get('description_2_10_2_1401'))){
-                                        return true;
-                                    }else{
-                                        return false;
-                                    }
-                                })                           
-                                     ->helperText('مربوط به سال ۱۴۰۱')
-                                ->imageEditor()
-                            ,
-
-                            FileUpload::make('image_2_10_2_1402')
-                                ->multiple()
-                                ->helperText('مربوط به ۱۴۰۲')
-                                ->image()
-                                ->maxSize(1000)
-                                ->imageEditor()
-                                ->visible(function ($get){
-                                    if(in_array('سایر',$get('description_2_10_2_1402'))){
-                                        return true;
-                                    }else{
-                                        return false;
-                                    }
-                                })                                
-                                ->label('مستندات'),
+                                ,         
 
                             Select::make('description_2_10_2_1401')
                                 ->label('توضیحات')
@@ -1190,6 +1163,41 @@ class EditQuestion extends Page implements HasForms
                                 ->reactive()
                                 ->helperText('مربوط به ۱۴۰۲(هر پایان نامه می تواند فقط متعلق به یکی از سه زیر شاخه نظری ، میدانی و تجربی باشد.)')
                                 ,
+                                
+
+                            FileUpload::make('image_2_10_2_1401')
+                            ->multiple()
+                            ->label('مستندات')
+                            ->image()
+                            ->maxSize(1000)
+                            ->columnSpanFull()
+                            ->visible(function ($get){
+                                if(in_array('سایر',$get('description_2_10_2_1401'))){
+                                    return true;
+                                }else{
+                                    return false;
+                                }
+                            })                           
+                                 ->helperText('مربوط به سال ۱۴۰۱')
+                            ->imageEditor()
+                        ,
+
+                        FileUpload::make('image_2_10_2_1402')
+                        ->label('مستندات')
+
+                            ->multiple()
+                            ->helperText('مربوط به ۱۴۰۲')
+                            ->columnSpanFull()
+                            ->image()
+                            ->maxSize(1000)
+                            ->imageEditor()
+                            ->visible(function ($get){
+                                if(in_array('سایر',$get('description_2_10_2_1402'))){
+                                    return true;
+                                }else{
+                                    return false;
+                                }
+                            })                       
 
                         ])->columns(2)->description('شماره بند آیین نامه : ۲-۱۰-۲'),
 
@@ -1215,39 +1223,6 @@ class EditQuestion extends Page implements HasForms
 
                                 ,
 
-                            FileUpload::make('image_2_10_3_1401')
-                                ->multiple()
-                                ->label('مستندات')
-                                ->image()
-                                ->maxSize(1000)
-                                ->reactive()
-                                ->visible(function ($get){
-                                    if(in_array('سایر',$get('description_2_10_3_1401'))){
-                                        return true;
-                                    }else{
-                                        return false;
-                                    }
-                                })                                
-                                ->helperText('مربوط به سال ۱۴۰۱')
-                                ->imageEditor()
-                            ,
-
-                            FileUpload::make('image_2_10_3_1402')
-                                ->multiple()
-                                ->helperText('مربوط به ۱۴۰۲')
-                                ->image()
-                                ->maxSize(1000)
-                                ->reactive()
-                                ->visible(function ($get){
-                                    if(in_array('سایر',$get('description_2_10_3_1402'))){
-                                        return true;
-                                    }else{
-                                        return false;
-                                    }
-                                })
-                                ->imageEditor()
-                                ->label('مستندات'),
-
                             Select::make('description_2_10_3_1401')
                                 ->label('توضیحات')
                                 ->options($result401??null)
@@ -1263,6 +1238,42 @@ class EditQuestion extends Page implements HasForms
                                 ->reactive()
                                 ->helperText('مربوط به ۱۴۰۲(هر پایان نامه می تواند فقط متعلق به یکی از سه زیر شاخه نظری ، میدانی و تجربی باشد.)')
                                 ,
+                                
+                            FileUpload::make('image_2_10_3_1401')
+                            ->multiple()
+                            ->label('مستندات')
+                            ->image()
+                            ->maxSize(1000)
+                            ->columnSpanFull()
+                            ->reactive()
+                            ->visible(function ($get){
+                                if(in_array('سایر',$get('description_2_10_3_1401'))){
+                                    return true;
+                                }else{
+                                    return false;
+                                }
+                            })                                
+                            ->helperText('مربوط به سال ۱۴۰۱')
+                            ->imageEditor()
+                        ,
+
+                        FileUpload::make('image_2_10_3_1402')
+                            ->multiple()
+                            ->helperText('مربوط به ۱۴۰۲')
+                            ->image()
+                            ->maxSize(1000)
+                            ->columnSpanFull()
+                            ->reactive()
+                            ->visible(function ($get){
+                                if(in_array('سایر',$get('description_2_10_3_1402'))){
+                                    return true;
+                                }else{
+                                    return false;
+                                }
+                            })
+                            ->imageEditor()
+                            ->label('مستندات'),
+
 
 
                         ])->columns(2)->description('شماره بند آیین نامه : ۳-۱۰-۲'),
@@ -1287,11 +1298,29 @@ class EditQuestion extends Page implements HasForms
                                 ->maxValue(100)
                                 ,
 
-                            FileUpload::make('image_2_11_1_1401')
+                            
+
+                            Select::make('description_2_11_1_1401')
+                                ->label('توضیحات')
+                            ->options($doctorResult401??null)
+                                ->multiple()
+                                ->reactive()
+                                ->helperText('مربوط به سال ۱۴۰۱(هر پایان نامه می تواند فقط متعلق به یکی از سه زیر شاخه نظری ، میدانی و تجربی باشد.)')
+                                ,
+
+                            Select::make('description_2_11_1_1402')
+                                ->label('توضیحات')
+                            ->options($doctorResult402??null)
+                                ->multiple()
+                                ->reactive()
+                                ->helperText('مربوط به ۱۴۰۲(هر پایان نامه می تواند فقط متعلق به یکی از سه زیر شاخه نظری ، میدانی و تجربی باشد.)')
+                                ,
+                                FileUpload::make('image_2_11_1_1401')
                                 ->multiple()
                                 ->label('مستندات')
                                 ->image()
                                 ->maxSize(1000)
+                                ->columnSpanFull()
                                 ->reactive()
                                 ->visible(function ($get){
                                     if(in_array('سایر',$get('description_2_11_1_1401'))){
@@ -1310,6 +1339,7 @@ class EditQuestion extends Page implements HasForms
                                 ->image()
                                 ->maxSize(1000)
                                 ->reactive()
+                                ->columnSpanFull()
                                 ->visible(function ($get){
                                     if(in_array('سایر',$get('description_2_11_1_1402'))){
                                         return true;
@@ -1319,22 +1349,6 @@ class EditQuestion extends Page implements HasForms
                                 })
                                 ->imageEditor()
                                 ->label('مستندات'),
-
-                            Select::make('description_2_11_1_1401')
-                                ->label('توضیحات')
-                            ->options($doctorResult401??null)
-                                ->multiple()
-                                ->reactive()
-                                ->helperText('مربوط به سال ۱۴۰۱(هر پایان نامه می تواند فقط متعلق به یکی از سه زیر شاخه نظری ، میدانی و تجربی باشد.)')
-                                ,
-
-                            Select::make('description_2_11_1_1402')
-                                ->label('توضیحات')
-                            ->options($doctorResult402??null)
-                                ->multiple()
-                                ->reactive()
-                                ->helperText('مربوط به ۱۴۰۲(هر پایان نامه می تواند فقط متعلق به یکی از سه زیر شاخه نظری ، میدانی و تجربی باشد.)')
-                                ,
 
 
                         ])->columns(2)->description('شماره بند آیین نامه : ۱-۱۱-۲'),
@@ -1361,38 +1375,6 @@ class EditQuestion extends Page implements HasForms
 
                                 ,
 
-                            FileUpload::make('image_2_11_2_1401')
-                                ->multiple()
-                                ->label('مستندات')
-                                ->image()
-                                ->maxSize(1000)
-                                ->reactive()
-                                ->visible(function ($get){
-                                    if(in_array('سایر',$get('description_2_11_2_1401'))){
-                                        return true;
-                                    }else{
-                                        return false;
-                                    }
-                                })
-                                ->helperText('مربوط به سال ۱۴۰۱')
-                                ->imageEditor()
-                            ,
-
-                            FileUpload::make('image_2_11_2_1402')
-                                ->multiple()
-                                ->helperText('مربوط به ۱۴۰۲')
-                                ->image()
-                                ->maxSize(1000)
-                                ->reactive()
-                                ->visible(function ($get){
-                                    if(in_array('سایر',$get('description_2_11_2_1402'))){
-                                        return true;
-                                    }else{
-                                        return false;
-                                    }
-                                })                                
-                                ->imageEditor()
-                                ->label('مستندات'),
 
                             Select::make('description_2_11_2_1401')
                                 ->label('توضیحات')
@@ -1409,6 +1391,41 @@ class EditQuestion extends Page implements HasForms
                                 ->reactive()
                                 ->helperText('مربوط به ۱۴۰۲(هر پایان نامه می تواند فقط متعلق به یکی از سه زیر شاخه نظری ، میدانی و تجربی باشد.)')
                                 ,
+                                
+                            FileUpload::make('image_2_11_2_1401')
+                            ->multiple()
+                            ->label('مستندات')
+                            ->image()
+                            ->columnSpanFull()
+                            ->maxSize(1000)
+                            ->reactive()
+                            ->visible(function ($get){
+                                if(in_array('سایر',$get('description_2_11_2_1401'))){
+                                    return true;
+                                }else{
+                                    return false;
+                                }
+                            })
+                            ->helperText('مربوط به سال ۱۴۰۱')
+                            ->imageEditor()
+                        ,
+
+                        FileUpload::make('image_2_11_2_1402')
+                            ->multiple()
+                            ->helperText('مربوط به ۱۴۰۲')
+                            ->image()
+                            ->maxSize(1000)
+                            ->reactive()
+                            ->columnSpanFull()
+                            ->visible(function ($get){
+                                if(in_array('سایر',$get('description_2_11_2_1402'))){
+                                    return true;
+                                }else{
+                                    return false;
+                                }
+                            })                                
+                            ->imageEditor()
+                            ->label('مستندات'),
 
                         ])->columns(2)->description('شماره بند آیین نامه : ۲-۱۱-۲'),
 
@@ -1433,10 +1450,28 @@ class EditQuestion extends Page implements HasForms
 
                                 ,
 
-                            FileUpload::make('image_2_11_3_1401')
+                         
+
+                            Select::make('description_2_11_3_1401')
+                                ->label('توضیحات')
+                                ->options($doctorResult401??null)
+                                ->reactive()
+                                ->multiple()
+                                ->helperText('مربوط به سال ۱۴۰۱(هر پایان نامه می تواند فقط متعلق به یکی از سه زیر شاخه نظری ، میدانی و تجربی باشد.)')
+                                ,
+
+                            Select::make('description_2_11_3_1402')
+                                ->label('توضیحات')
+                                ->options($doctorResult402??null)
+                                ->multiple()
+                                ->reactive()
+                                ->helperText('مربوط به ۱۴۰۲(هر پایان نامه می تواند فقط متعلق به یکی از سه زیر شاخه نظری ، میدانی و تجربی باشد.)')
+                                ,
+                                FileUpload::make('image_2_11_3_1401')
                                 ->multiple()
                                 ->label('مستندات')
                                 ->image()
+                                ->columnSpanFull()
                                 ->maxSize(1000)
                                 ->reactive()
                                 ->visible(function ($get){
@@ -1455,6 +1490,7 @@ class EditQuestion extends Page implements HasForms
                                 ->label('مستندات')
                                 ->image()
                                 ->maxSize(1000)
+                                ->columnSpanFull()
                                 ->reactive()
                                 ->visible(function ($get){
                                     if(in_array('سایر',$get('description_2_11_3_1402'))){
@@ -1465,22 +1501,6 @@ class EditQuestion extends Page implements HasForms
                                 })
                                 ->helperText('مربوط به ۱۴۰۲')
                                 ->imageEditor(),
-
-                            Select::make('description_2_11_3_1401')
-                                ->label('توضیحات')
-                                ->options($doctorResult401??null)
-                                ->reactive()
-                                ->multiple()
-                                ->helperText('مربوط به سال ۱۴۰۱(هر پایان نامه می تواند فقط متعلق به یکی از سه زیر شاخه نظری ، میدانی و تجربی باشد.)')
-                                ,
-
-                            Select::make('description_2_11_3_1402')
-                                ->label('توضیحات')
-                                ->options($doctorResult402??null)
-                                ->multiple()
-                                ->reactive()
-                                ->helperText('مربوط به ۱۴۰۲(هر پایان نامه می تواند فقط متعلق به یکی از سه زیر شاخه نظری ، میدانی و تجربی باشد.)')
-                                ,
 
                         ])->columns(2)->description('شماره بند آیین نامه : ۳-۱۱-۲'),
 
