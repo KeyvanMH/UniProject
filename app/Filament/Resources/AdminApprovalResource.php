@@ -45,11 +45,14 @@ class AdminApprovalResource extends Resource
                 Tables\Columns\TextColumn::make('user.name')
                     ->label('نام هیئت علمی')
                     ->searchable(),
+
                 Tables\Columns\TextColumn::make('question.number_code')
                     ->label('شماره آیین نامه'),
+
                 Tables\Columns\TextColumn::make('question.description')
                     ->label('شرح سوال')
                     ->searchable(),
+
                 Tables\Columns\TextColumn::make('year_1401')->label('سال ۱۴۰۱'),
                 Tables\Columns\TextColumn::make('year_1402')->label('سال ۱۴۰۲'),
                 TextColumn::make('grant_price')->label('مبلغ پژوهانه')->money('rial'),
@@ -62,6 +65,7 @@ class AdminApprovalResource extends Resource
                         }
                     })
                     ->disk('public')
+                    ->stacked()
                     ->circular()
                     ->toggleable(isToggledHiddenByDefault: false),
 
@@ -69,6 +73,7 @@ class AdminApprovalResource extends Resource
                     ->label('مستندات ۱۴۰۲')
                     ->disk('public')
                     ->circular()
+                    ->stacked()
                     ->url(function($record){
                         if($record->image402){
                             Storage::url($record->image402()->where('image_path','!=',null)->get());

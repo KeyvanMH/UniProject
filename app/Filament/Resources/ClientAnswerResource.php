@@ -59,14 +59,16 @@ class ClientAnswerResource extends Resource
                     ->disk('public')
                     // ->url(fn ($record) => $record->images->image_path ? Storage::url($record->images->image_path) : null)
                     ->circular()
-                    ->wrap()
+                    ->stacked()
+//                    ->wrap()
                     ->toggleable(isToggledHiddenByDefault: false),
 
                 Tables\Columns\ImageColumn::make('images402.image_path')->label('مستندات ۱۴۰۲')
                     ->disk('public')
                     // ->url(fn ($record) => $record->images->image_path ? Storage::url($record->images->image_path) : null)
                     ->circular()
-                    ->wrap()
+                    ->stacked()
+//                    ->wrap()
                     ->toggleable(isToggledHiddenByDefault: false),
 
                 TextColumn::make('dissertation_1401')
@@ -79,7 +81,7 @@ class ClientAnswerResource extends Resource
                     ->formatStateUsing(fn ($record,$state) => implode("</br>",json_decode($record->dissertation_1402, true)))
                     ->html()
                     ->toggleable(isToggledHiddenByDefault: true),
-                 
+
 
             ])
             ->recordUrl(null)

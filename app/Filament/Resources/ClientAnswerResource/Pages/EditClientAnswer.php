@@ -11,6 +11,7 @@ use Filament\Actions\RestoreAction;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Hidden;
 use Filament\Forms\Components\Select;
+use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
 use Filament\Forms\Form;
@@ -51,21 +52,65 @@ class EditClientAnswer extends EditRecord {
     }
     public function form(Form $form): Form {
         $this->numberInput();
-        info($this->data);
         return $form
             ->schema([
                 $this->firstFormInput,
                 $this->secondFormInput,
-                Hidden::make('grant_price')->reactive(),
-                // TextInput::make('dissertation_answer')
-                // ->disabled()
-                // ->label('پایان نامه های فعلی')
-                // ->visible(fn ($record) => EditClientAnswer::shouldShowDissertationFields($record))
-                // ->placeholder('تست')
-                // ->columnSpanFull(),
+                Hidden::make('grant_price')
+                    ->reactive(),
+
+                 Textarea::make('dissertation_answer_1401')
+                 ->disabled()
+                 ->rows(function ($record){
+                     if(is_array($record->dissertation_1401)){
+                         return count($record->dissertation_1401)+1;
+                     }
+                     else{
+                         return count(json_decode($record->dissertation_1401))+1;
+                     }
+                 })
+                 ->label('پایان نامه های انتخابی فعلی ۱۴۰۱')
+                 ->visible(fn ($record) => EditClientAnswer::shouldShowDissertationFields($record))
+                 ->placeholder(function($record) {
+                         if(is_array($record->dissertation_1401)){
+                             return implode("\n",$record->dissertation_1401);
+                         }else{
+                             return implode("\n",json_decode($record->dissertation_1401));
+                         }
+                 }),
+
+
+                Textarea::make('dissertation_answer_1402')
+                 ->disabled()
+                ->rows(function ($record){
+                    if(is_array($record->dissertation_1402)){
+                        return count($record->dissertation_1402)+1;
+                    }
+                    else{
+                        return count(json_decode($record->dissertation_1402))+1;
+                    }
+                })
+                 ->label(' پایان نامه های انتخابی فعلی ۱۴۰۲')
+                 ->visible(fn ($record) => EditClientAnswer::shouldShowDissertationFields($record))
+                 ->placeholder(function($record){
+                     if(is_array($record->dissertation_1402)){
+                        return implode("\n",$record->dissertation_1402);
+                     }else{
+                         return implode("\n",json_decode($record->dissertation_1402));
+                     }
+                     }),
+
+
                 Select::make('dissertation_1401')
-                    ->options(function($record){
-                        return $this->dessertationType($record)?EditClientAnswer::dissertation1401():EditClientAnswer::doctorDissertation1401();
+                    ->options(function($record) {
+                        return $this->dessertationType($record) ? EditClientAnswer::dissertation1401():EditClientAnswer::doctorDissertation1401();
+                    })
+                    ->default(function($record){
+                        if(is_array($record->dissertation_1401)){
+                            return implode("\n",$record->dissertation_1401);
+                        }else{
+                            return implode("\n",json_decode($record->dissertation_1401));
+                        }
                     })
                     ->multiple()
                     ->visible(fn ($record) => EditClientAnswer::shouldShowDissertationFields($record))
@@ -74,9 +119,17 @@ class EditClientAnswer extends EditRecord {
                         $set('dissertation_1401', $state);
                     }),
 
+
                 Select::make('dissertation_1402')
                     ->options(function ($record){
                         return $this->dessertationType($record)?EditClientAnswer::dissertation1402():EditClientAnswer::doctorDissertation1402();
+                    })
+                    ->default(function ($record) {
+                        if (is_array($record->dissertation_1402)) {
+                            return implode("\n", $record->dissertation_1402);
+                        } else {
+                            return implode("\n", json_decode($record->dissertation_1402));
+                        }
                     })
                     ->multiple()
                     ->visible(fn ($record) => EditClientAnswer::shouldShowDissertationFields($record))
@@ -84,7 +137,8 @@ class EditClientAnswer extends EditRecord {
                     ->afterStateUpdated(function ($state, callable $get, callable $set) {
                         $set('dissertation_1402', $state);
                     }),
-                    
+
+
                     Repeater::make('image401')
                     ->label('مستندات')
                     ->maxItems(5)
@@ -105,10 +159,8 @@ class EditClientAnswer extends EditRecord {
                             Hidden::make('year')->default('1401')
                 ]),
 
-                //TODO  old answer visible
 
                 Repeater::make('images402')
-                
                 ->relationship('images402')
                 ->label('مستندات')
                 ->maxItems(5)
@@ -198,19 +250,20 @@ class EditClientAnswer extends EditRecord {
     }
     protected static function dissertation1401() {
         $dbQuery1401 = Dissertation::where('user_id','=',auth()->user()->id)->first();
+        $dissertation1401 = [];
         if (isset($dbQuery1401->dissertation_1401)){
             $flip401 = json_decode($dbQuery1401->dissertation_1401,true);
             $dissertation1401 = array_flip($flip401);
             foreach ($dissertation1401 as $key => $value){
                 $dissertation1401[$key] = $flip401[$value];
             }
-            $dissertation1401['سایر'] = 'سایر';
         }
+        $dissertation1401['سایر'] = 'سایر';
         return $dissertation1401;
     }
     protected static function doctorDissertation1401() {
         $dbQuery1401 = DissertationDoctor::where('user_id','=',auth()->user()->id)->first();
-        $dissertation1401['سایر'] = 'سایر';
+        $dissertation1401 = [];
         if (isset($dbQuery1401->dissertation_1401)){
             $flip401 = json_decode($dbQuery1401->dissertation_1401,true);
             $dissertation1401 = array_flip($flip401);
@@ -218,11 +271,12 @@ class EditClientAnswer extends EditRecord {
                 $dissertation1401[$key] = $flip401[$value];
             }
         }
+        $dissertation1401['سایر'] = 'سایر';
         return $dissertation1401;
     }
     protected static function dissertation1402() {
         $dbQuery1402 = Dissertation::where('user_id','=',auth()->user()->id)->first();
-        $dissertation1402['سایر'] = 'سایر';
+        $dissertation1402 = [];
         if(isset($dbQuery1402->dissertation_1402)){
             $flip402 =  json_decode($dbQuery1402->dissertation_1402,true);
             $dissertation1402 = array_flip($flip402);
@@ -230,11 +284,12 @@ class EditClientAnswer extends EditRecord {
                 $dissertation1402[$key] = $flip402[$value];
             }
         }
+        $dissertation1402['سایر'] = 'سایر';
         return $dissertation1402;
     }
     protected static function doctorDissertation1402() {
         $dbQuery1402 = DissertationDoctor::where('user_id','=',auth()->user()->id)->first();
-        $dissertation1402['سایر'] = 'سایر';
+        $dissertation1402 = [];
         if(isset($dbQuery1402->dissertation_1402)){
             $flip402 =  json_decode($dbQuery1402->dissertation_1402,true);
             $dissertation1402 = array_flip($flip402);
@@ -242,6 +297,7 @@ class EditClientAnswer extends EditRecord {
                 $dissertation1402[$key] = $flip402[$value];
             }
         }
+        $dissertation1402['سایر'] = 'سایر';
         return $dissertation1402;
     }
     protected static function shouldShowDissertationFields($record) {
@@ -249,10 +305,6 @@ class EditClientAnswer extends EditRecord {
     }
 
     protected function dessertationType($record){
-        if (in_array($record->question_id,['2_10_1','2_10_2','2_10_3'])) {
-            $this->dessertationType = true;
-        }else{
-            $this->dessertationType = false;
-        }
+        return in_array($record->question_id,['2_10_1','2_10_2','2_10_3']);
     }
 }
