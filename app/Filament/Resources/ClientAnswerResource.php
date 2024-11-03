@@ -48,7 +48,7 @@ class ClientAnswerResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('question.number_code')->label('شماره آیین نامه سئوال'),
+                Tables\Columns\TextColumn::make('question.number_code')->label('شماره آیین نامه سئوال')->sortable(),
                 Tables\Columns\TextColumn::make('question.description')->label('شرح مختصر سئوال'),
                 Tables\Columns\TextColumn::make('year_1401')->label('سال ۱۴۰۱'),
                 Tables\Columns\TextColumn::make('year_1402')->label('سال ۱۴۰۲'),
