@@ -10,6 +10,7 @@ use Filament\Actions\ForceDeleteAction;
 use Filament\Actions\RestoreAction;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Hidden;
+use Filament\Forms\Components\Placeholder;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
@@ -59,7 +60,7 @@ class EditClientAnswer extends EditRecord {
                 Hidden::make('grant_price')
                     ->reactive(),
 
-                 Textarea::make('dissertation_answer_1401')
+                Textarea::make('dissertation_answer_1401')
                  ->disabled()
                  ->rows(function ($record){
                      if(is_array($record->dissertation_1401)){
@@ -78,7 +79,6 @@ class EditClientAnswer extends EditRecord {
                              return implode("\n",json_decode($record->dissertation_1401));
                          }
                  }),
-
 
                 Textarea::make('dissertation_answer_1402')
                  ->disabled()
@@ -100,11 +100,17 @@ class EditClientAnswer extends EditRecord {
                      }
                      }),
 
+                Placeholder::make('no label')
+                    ->hiddenLabel()
+                    ->columnSpanFull()
+                    ->visible(fn ($record) => EditClientAnswer::shouldShowDissertationFields($record))
+                    ->content('استاد راهنمای محترم، در صورتی که دارای پابان نامه کارشناسی ارشد یا رساله دکتری تحت راهنمایی می باشید که در تاریخ تصویب پروپوزال آنها  در سال ۱۴۰۱ و ۱۴۰۲  می باشد و در لیست پیش فرض نمایش داده نمی شود، لطفا با انتخاب گزینه سایر نسبت به بارگذاری حکم تصویب آن اقدام نمایید.'),
 
                 Select::make('dissertation_1401')
                     ->options(function($record) {
                         return $this->dessertationType($record) ? EditClientAnswer::dissertation1401():EditClientAnswer::doctorDissertation1401();
                     })
+                    ->reactive()
                     ->default(function($record){
                         if(is_array($record->dissertation_1401)){
                             return implode("\n",$record->dissertation_1401);
@@ -119,11 +125,11 @@ class EditClientAnswer extends EditRecord {
                         $set('dissertation_1401', $state);
                     }),
 
-
                 Select::make('dissertation_1402')
                     ->options(function ($record){
                         return $this->dessertationType($record)?EditClientAnswer::dissertation1402():EditClientAnswer::doctorDissertation1402();
                     })
+                    ->reactive()
                     ->default(function ($record) {
                         if (is_array($record->dissertation_1402)) {
                             return implode("\n", $record->dissertation_1402);
@@ -142,6 +148,13 @@ class EditClientAnswer extends EditRecord {
                     Repeater::make('image401')
                     ->label('مستندات')
                     ->maxItems(5)
+                    ->reactive()
+                        ->visible(function($get,$record){
+                            if(EditClientAnswer::shouldShowDissertationFields($record)){
+                                return in_array('سایر',$get('dissertation_1401'));
+                            }
+                            return true;
+                        })
                     ->relationship('images401')
                     ->schema([
                         FileUpload::make('image_path')
@@ -164,6 +177,13 @@ class EditClientAnswer extends EditRecord {
                 ->relationship('images402')
                 ->label('مستندات')
                 ->maxItems(5)
+                ->reactive()
+                ->visible(function($get,$record){
+                    if(EditClientAnswer::shouldShowDissertationFields($record)){
+                        return in_array('سایر',$get('dissertation_1402'));
+                    }
+                    return true;
+                })
                 ->schema([
                     FileUpload::make('image_path')
                     ->image()
