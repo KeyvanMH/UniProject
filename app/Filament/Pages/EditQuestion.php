@@ -406,7 +406,7 @@ class EditQuestion extends Page implements HasForms
             }
         }
         $result402['سایر'] = 'سایر';
-        
+
         $doctorDissertations = DissertationDoctor::where('user_id','=',auth()->user()->id)->first();
         if(!empty($doctorDissertations->dissertation_1401)){
             $unFlip401 = json_decode($dissertations->dissertation_1401,true);
@@ -855,10 +855,6 @@ class EditQuestion extends Page implements HasForms
                                 ->label('مستندات'),
 
 
-
-
-
-
                         ])->columns(2)->description('شماره بند آیین نامه : ۲۷-۲'),
 
                         Section::make([
@@ -876,7 +872,6 @@ class EditQuestion extends Page implements HasForms
                                 ->label('مستندات')
                                 ->image()
                                 ->maxSize(1000)
-
                                 ->helperText('مربوط به سال ۱۴۰۱')
                                 ->imageEditor()
                             ,
@@ -886,15 +881,8 @@ class EditQuestion extends Page implements HasForms
                                 ->helperText('مربوط به ۱۴۰۲')
                                 ->image()
                                 ->maxSize(1000)
-
                                 ->imageEditor()
                                 ->label('مستندات'),
-
-
-
-
-
-
                         ])->columns(2)->description('شماره بند آیین نامه : ۲۸-۲'),
 
                         Section::make([
@@ -1088,7 +1076,7 @@ class EditQuestion extends Page implements HasForms
                                 ->reactive()
                                 ->helperText('مربوط به ۱۴۰۲(هر پایان نامه می تواند فقط متعلق به یکی از سه زیر شاخه نظری ، میدانی و تجربی باشد.)')
                                 ,
-                                
+
                             FileUpload::make('image_2_10_1_1401')
                             ->multiple()
                             ->label('مستندات')
@@ -1146,7 +1134,7 @@ class EditQuestion extends Page implements HasForms
                                 ->numeric()
                                 ->minValue(0)
                                 ->maxValue(100)
-                                ,         
+                                ,
 
                             Select::make('description_2_10_2_1401')
                                 ->label('توضیحات')
@@ -1163,7 +1151,7 @@ class EditQuestion extends Page implements HasForms
                                 ->reactive()
                                 ->helperText('مربوط به ۱۴۰۲(هر پایان نامه می تواند فقط متعلق به یکی از سه زیر شاخه نظری ، میدانی و تجربی باشد.)')
                                 ,
-                                
+
 
                             FileUpload::make('image_2_10_2_1401')
                             ->multiple()
@@ -1177,7 +1165,7 @@ class EditQuestion extends Page implements HasForms
                                 }else{
                                     return false;
                                 }
-                            })                           
+                            })
                                  ->helperText('مربوط به سال ۱۴۰۱')
                             ->imageEditor()
                         ,
@@ -1197,7 +1185,7 @@ class EditQuestion extends Page implements HasForms
                                 }else{
                                     return false;
                                 }
-                            })                       
+                            })
 
                         ])->columns(2)->description('شماره بند آیین نامه : ۲-۱۰-۲'),
 
@@ -1238,7 +1226,7 @@ class EditQuestion extends Page implements HasForms
                                 ->reactive()
                                 ->helperText('مربوط به ۱۴۰۲(هر پایان نامه می تواند فقط متعلق به یکی از سه زیر شاخه نظری ، میدانی و تجربی باشد.)')
                                 ,
-                                
+
                             FileUpload::make('image_2_10_3_1401')
                             ->multiple()
                             ->label('مستندات')
@@ -1252,7 +1240,7 @@ class EditQuestion extends Page implements HasForms
                                 }else{
                                     return false;
                                 }
-                            })                                
+                            })
                             ->helperText('مربوط به سال ۱۴۰۱')
                             ->imageEditor()
                         ,
@@ -1298,7 +1286,7 @@ class EditQuestion extends Page implements HasForms
                                 ->maxValue(100)
                                 ,
 
-                            
+
 
                             Select::make('description_2_11_1_1401')
                                 ->label('توضیحات')
@@ -1372,7 +1360,6 @@ class EditQuestion extends Page implements HasForms
                                 ->numeric()
                                 ->minValue(0)
                                 ->maxValue(100)
-
                                 ,
 
 
@@ -1391,7 +1378,7 @@ class EditQuestion extends Page implements HasForms
                                 ->reactive()
                                 ->helperText('مربوط به ۱۴۰۲(هر پایان نامه می تواند فقط متعلق به یکی از سه زیر شاخه نظری ، میدانی و تجربی باشد.)')
                                 ,
-                                
+
                             FileUpload::make('image_2_11_2_1401')
                             ->multiple()
                             ->label('مستندات')
@@ -1423,7 +1410,7 @@ class EditQuestion extends Page implements HasForms
                                 }else{
                                     return false;
                                 }
-                            })                                
+                            })
                             ->imageEditor()
                             ->label('مستندات'),
 
@@ -1450,7 +1437,7 @@ class EditQuestion extends Page implements HasForms
 
                                 ,
 
-                         
+
 
                             Select::make('description_2_11_3_1401')
                                 ->label('توضیحات')
@@ -1898,7 +1885,7 @@ BLADE)))
                                     ]);
                                 }
                             }
-                                
+
                             } elseif ($typeIsNumber) {
                                 if ($yearIs1401) {
                                     $answer->year_1401 = $input;

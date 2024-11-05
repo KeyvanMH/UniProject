@@ -18,10 +18,19 @@ return new class extends Migration
                 ->constrained()
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
+            //price before
+            $table->float('sum_price')->default(0);
+            //childnumber grant +0.1 for everychild
+            $table->float('child_number')->default(0);
+            //marriedwoman
+            $table->float('is_married_woman')->default(0);
             $table->float('total_grant_price')->default(0);
-            $table->boolean('is_finished')->default(0);
+//            $table->boolean('is_finished')->default(0);
             $table->timestamps();
         });
+//        Schema::create('results',function (Blueprint $table){
+//            $table->boolean('is_finished');
+//        });
     }
 
     /**

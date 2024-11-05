@@ -104,7 +104,7 @@ class EditClientAnswer extends EditRecord {
                     ->hiddenLabel()
                     ->columnSpanFull()
                     ->visible(fn ($record) => EditClientAnswer::shouldShowDissertationFields($record))
-                    ->content('استاد راهنمای محترم، در صورتی که دارای پابان نامه کارشناسی ارشد یا رساله دکتری تحت راهنمایی می باشید که در تاریخ تصویب پروپوزال آنها  در سال ۱۴۰۱ و ۱۴۰۲  می باشد و در لیست پیش فرض نمایش داده نمی شود، لطفا با انتخاب گزینه سایر نسبت به بارگذاری حکم تصویب آن اقدام نمایید.'),
+                    ->content('استاد راهنمای محترم، در صورتی که دارای پایان نامه کارشناسی ارشد یا رساله دکتری تحت راهنمایی می باشید که در تاریخ تصویب پروپوزال آنها  در سال ۱۴۰۱ و ۱۴۰۲  می باشد و در لیست پیش فرض نمایش داده نمی شود، لطفا با انتخاب گزینه سایر نسبت به بارگذاری حکم تصویب آن اقدام نمایید.'),
 
                 Select::make('dissertation_1401')
                     ->options(function($record) {
@@ -247,7 +247,7 @@ class EditClientAnswer extends EditRecord {
                 ->afterStateUpdated(function ($set,$get,$state,$record){
                     if($record->question->grant == 2){
                         $set('grant_price',(($get('year_1401')+$get('year_1402'))/2)*$record->question->coefficient*210974088);
-                    }elseif($record->question->grant == 1){
+                    }elseif($record->question->grant == 1 ){
                         $set('grant_price',(($get('year_1401')+$get('year_1402'))/2)*$record->question->coefficient*8939580);
                     }
                 });
@@ -260,7 +260,7 @@ class EditClientAnswer extends EditRecord {
                 ->maxValue(100)
                 ->reactive()
                 ->afterStateUpdated(function ($set,$get,$state,$record){
-                    if($record->question->grant == 2){
+                    if($record->question->grant == 2  ){
                         $set('grant_price',(($get('year_1401')+$get('year_1402'))/2)*$record->question->coefficient*210974088);
                     }elseif($record->question->grant == 1){
                         $set('grant_price',(($get('year_1401')+$get('year_1402'))/2)*$record->question->coefficient*8939580);

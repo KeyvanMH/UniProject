@@ -5,6 +5,7 @@ use App\Filament\Resources\AdminApprovalResource\Pages;
 use App\Filament\Resources\AdminApprovalResource\RelationManagers;
 use App\Http\Middleware\AdminMiddleware;
 use App\Models\Answer;
+use App\Models\Result;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -99,9 +100,39 @@ class AdminApprovalResource extends Resource
                         $record->update([
                             $name => !$record->$name
                         ]);
-                        //TODO change form filled in user model
-
-                        //TODO result table
+                        $result = Result::firstOrCreate(['user_id' => $record->user_id]);
+                        if($record->$name){
+                            //add to result
+                            if($record->question_id == '3_3_1') {
+                                $result->is_married_woman = ($record->year_1401 * 0.1);
+                                $result->total_grant_price = $result->sum_price + ($result->sum_price*$result->child_number) + ($result->is_married_woman * $result->sum_price);
+                                $result->save();
+                            }elseif($record->question_id == '3_3_2'){
+                                $result->child_number = (($record->year_1401+$record->year_1402)/2)*0.1;
+                                $result->total_grant_price = $result->sum_price + ($result->sum_price*$result->child_number) + ($result->is_married_woman * $result->sum_price);
+                                $result->save();
+                            }else{
+                                $result->sum_price += $record->grant_price;
+                                $result->total_grant_price = $result->sum_price + ($result->sum_price*$result->child_number) + ($result->is_married_woman * $result->sum_price);
+                                $result->save();
+                            }
+                        }else{
+                            //minus from result
+                            if($record->question_id == '3_3_1'){
+                                $result->total_grant_price -= $result->sum_price * $result->is_married_woman;
+                                $result->is_married_woman = 0;
+                                $result->save();
+                            }elseif($record->question_id == '3_3_2'){
+                                $result->total_grant_price -= $result->sum_price * $result->child_number;
+                                $result->child_number = 0;
+                                $result->save();
+                            }else{
+                                $result->sum_price -= $record->grant_price;
+                                $result->total_grant_price = $result->sum_price + ($result->sum_price*$result->child_number) + ($result->is_married_woman * $result->sum_price);
+                                $result->save();
+                            }
+                        }
+                        //TODO change form filled in user model if answered question of the user is 58 (answered everything)
                     }),
                 TextColumn::make('admin_response')
                     ->label('پاسخ')
@@ -169,4 +200,8 @@ class AdminApprovalResource extends Resource
     public static function canDelete(Model $record): bool {
         return false;
     }
+    public static function canEdit(Model $record): bool {
+        return !$record->admin_approval;
+    }
 }
+
