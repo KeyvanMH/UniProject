@@ -23,8 +23,8 @@ use pxlrbt\FilamentExcel\Exports\ExcelExport;
 class AdminApprovalResource extends Resource
 {
     protected static ?string $model = Answer::class;
-    protected static ?string $pluralLabel = 'تاییده کارشناس';
-    protected static ?string $label = 'تاییده';
+    protected static ?string $pluralLabel = 'تاییدیه کارشناس';
+    protected static ?string $label = 'تاییدیه';
     protected static string | array $routeMiddleware = [
         AdminMiddleware::class,
     ];
@@ -108,9 +108,9 @@ class AdminApprovalResource extends Resource
             ])
             ->recordUrl(null)
             ->filters([
-                Tables\Filters\SelectFilter::make('user')->relationship('user','name')->label('هیئت علمی'),
-                Tables\Filters\SelectFilter::make('question')->relationship('question','description')->label('شرح سوال'),
-                Tables\Filters\SelectFilter::make('question')->relationship('question','number_code')->label('شماره آیین نامه سوال'),
+                Tables\Filters\SelectFilter::make('user')->relationship('user','name')->label('هیئت علمی')->searchable()->preload(),
+                Tables\Filters\SelectFilter::make('question')->relationship('question','description')->label('شرح سوال')->searchable()->preload(),
+                Tables\Filters\SelectFilter::make('question')->relationship('question','number_code')->label('شماره آیین نامه سوال')->searchable()->preload(),
                 Tables\Filters\SelectFilter::make('admin_approval')
                     ->label('تاییده کارشناس')
                     ->options([

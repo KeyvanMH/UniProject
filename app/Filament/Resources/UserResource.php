@@ -47,7 +47,7 @@ class UserResource extends Resource
                     ->password()
                     ->label('رمز عبور')
                     ->minLength(8),
-                
+
                 Forms\Components\TextInput::make('email')
                     ->email()
                     ->label('رایانامه'),
@@ -85,6 +85,7 @@ class UserResource extends Resource
                 ->formatStateUsing(fn ($state) => $state === 'user' ? 'کاربر' : 'کارشناس')
                 ->sortable(),
         ])
+            ->recordUrl(null)
             ->filters([
                 // Add any filters if needed
             ])

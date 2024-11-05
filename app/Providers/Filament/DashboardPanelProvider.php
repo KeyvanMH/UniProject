@@ -9,6 +9,7 @@ use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
 use Filament\Navigation\MenuItem;
+use Filament\Navigation\NavigationGroup;
 use Filament\Pages;
 use Filament\Panel;
 use Filament\PanelProvider;
@@ -34,6 +35,11 @@ class DashboardPanelProvider extends PanelProvider
             ->id('pazhoohane')
             ->path('pazhoohane')
             ->login(CustomLogin::class)
+            ->navigationGroups([
+                NavigationGroup::make('مدیریت پایان نامه ها')
+                    ->collapsed()
+                    ->icon('heroicon-o-document-currency-bangladeshi'),
+                ])
             ->sidebarCollapsibleOnDesktop()
             ->colors([
                 'primary' => Color::Amber,
