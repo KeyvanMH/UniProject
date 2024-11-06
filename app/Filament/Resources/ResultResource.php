@@ -103,6 +103,14 @@ class ResultResource extends Resource
 //            'edit' => Pages\EditResult::route('/{record}/edit'),
         ];
     }
+    public static function canAccess(): bool {
+        return auth()->user()->role == 'admin';
+    }
+
+    public static function canView(Model $record): bool {
+        return auth()->user()->role == 'admin';
+    }
+
     public static function canCreate(): bool {
         return false;
     }
