@@ -23,6 +23,7 @@ class ResultResource extends Resource
     protected static ?string $model = Result::class;
     protected static ?string $pluralLabel = 'مبلغ نهایی';
     protected static ?string $label = 'مبلغ نهایی';
+    protected static ?string $navigationGroup = 'گزارش گیری';
     protected static string | array $routeMiddleware = [
         AdminMiddleware::class,
     ];
@@ -69,6 +70,7 @@ class ResultResource extends Resource
             ->filters([
                 Tables\Filters\SelectFilter::make('user.name')->relationship('user','name')->label('هیئت علمی')->searchable()->preload(),
             ])
+            ->defaultPaginationPageOption(5)
             ->actions([
             ])
             ->bulkActions([

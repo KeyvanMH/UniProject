@@ -4,8 +4,10 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\UserResource\Pages;
 use App\Filament\Resources\UserResource\RelationManagers;
+use App\Models\Answer;
 use App\Models\User;
 use Filament\Forms;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -29,6 +31,7 @@ class UserResource extends Resource
     {
         return $form
             ->schema([
+
                 Forms\Components\TextInput::make('name')
                     ->required()
                     ->label('نام کاربر'),
@@ -63,6 +66,7 @@ class UserResource extends Resource
         ]);
     }
 
+
     public static function table(Table $table): Table
     {
         return $table->columns([
@@ -89,6 +93,7 @@ class UserResource extends Resource
             ->filters([
                 // Add any filters if needed
             ])
+            ->defaultPaginationPageOption(5)
             ->actions([
                 Tables\Actions\EditAction::make(),
                 Tables\Actions\DeleteAction::make(),

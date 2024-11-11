@@ -22,6 +22,7 @@ class DissertationResource extends Resource
     protected static ?string $navigationGroup = 'مدیریت پایان نامه ها';
     protected static ?string $label = 'پایان نامه  کارشناسی ارشد';
     protected static ?string $pluralLabel = 'پایان نامه های کارشناسی ارشد';
+    protected static ?int $navigationSort = 3;
     protected static string | array $routeMiddleware = [
         AdminMiddleware::class,
     ];
@@ -29,6 +30,7 @@ class DissertationResource extends Resource
 
     public static function form(Form $form): Form
     {
+        //create form
         return $form
             ->schema([
                 Forms\Components\Select::make('user_id')
@@ -46,6 +48,7 @@ class DissertationResource extends Resource
                     ->columnSpanFull(),
                 Forms\Components\Textarea::make('dissertation_1401')
                     ->label('پایان نامه های ۱۴۰۱')
+                    ->rows(10)
                     ->formatStateUsing(function($state){
                         if(is_array($state)){
                             return implode('/',json_decode($state,true));
@@ -63,6 +66,7 @@ class DissertationResource extends Resource
                     ,
                 Forms\Components\Textarea::make('dissertation_1402')
                     ->label('پایان نامه های ۱۴۰۲')
+                    ->rows(10)
                     ->formatStateUsing(function($state){
                         if(is_array($state)){
                             return implode('/',json_decode($state,true));
@@ -104,6 +108,7 @@ class DissertationResource extends Resource
                 ->html(),
             ])
             ->recordUrl(null)
+            ->defaultPaginationPageOption(5)
             ->filters([
                 Tables\Filters\SelectFilter::make('user')->relationship('user','name')
                     ->label('هیئت علمی')

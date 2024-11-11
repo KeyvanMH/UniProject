@@ -88,6 +88,7 @@ class ClientAnswerResource extends Resource
             ->filters([
 
             ])
+            ->defaultPaginationPageOption(5)
             ->query(function (){
                 return Answer::where('user_id','=',auth()->user()->id);
             })

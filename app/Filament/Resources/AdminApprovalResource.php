@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\AdminApprovalResource\Pages;
@@ -6,6 +7,7 @@ use App\Filament\Resources\AdminApprovalResource\RelationManagers;
 use App\Http\Middleware\AdminMiddleware;
 use App\Models\Answer;
 use App\Models\Result;
+use App\Models\User;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -24,20 +26,22 @@ use pxlrbt\FilamentExcel\Exports\ExcelExport;
 class AdminApprovalResource extends Resource
 {
     protected static ?string $model = Answer::class;
-    protected static ?string $pluralLabel = 'تاییدیه کارشناس';
+    protected static ?string $pluralLabel = 'تاییدیه خوداظهاری';
     protected static ?string $label = 'تاییدیه';
+    protected static ?int $navigationSort = 0;
+    protected static ?string $navigationGroup = 'تکمیلی کارشناس';
     protected static string | array $routeMiddleware = [
         AdminMiddleware::class,
     ];
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
-    public static function form(Form $form): Form
-    {
-        return $form
-            ->schema([
-                Forms\Components\Textarea::make('admin_response')->label('پاسخ')->maxLength(200)->columnSpanFull()
-            ]);
-    }
+//    public static function form(Form $form): Form
+//    {
+//        return $form
+//            ->schema([
+//                Forms\Components\Textarea::make('admin_response')->label('پاسخ')->maxLength(200)->columnSpanFull()
+//            ]);
+//    }
 
     public static function table(Table $table): Table
     {
@@ -96,11 +100,13 @@ class AdminApprovalResource extends Resource
                     ->label('تاییده کارشناس')
                     ->sortable()
                     ->action(function($record, $column) {
+                        //todo maybe put it in db transaction
                         $name = $column->getName();
                         $record->update([
                             $name => !$record->$name
                         ]);
                         $result = Result::firstOrCreate(['user_id' => $record->user_id]);
+                        $answer = Answer::where([['user_id','=',$record->user_id],['admin_approval','=',1]])->get()->toArray();
                         if($record->$name){
                             //add to result
                             if($record->question_id == '3_3_1') {
@@ -116,6 +122,14 @@ class AdminApprovalResource extends Resource
                                 $result->total_grant_price = $result->sum_price + ($result->sum_price*$result->child_number) + ($result->is_married_woman * $result->sum_price);
                                 $result->save();
                             }
+                            //check for finished progress
+                            $user = User::where('id','=',$record->user_id)->first();
+                            if(count($answer) == 58){
+                                $user->progress_finished = 1;
+                            }else{
+                                $user->progress_finished = 0;
+                            }
+                            $user->save();
                         }else{
                             //minus from result
                             if($record->question_id == '3_3_1'){
@@ -131,17 +145,22 @@ class AdminApprovalResource extends Resource
                                 $result->total_grant_price = $result->sum_price + ($result->sum_price*$result->child_number) + ($result->is_married_woman * $result->sum_price);
                                 $result->save();
                             }
+                            //todo take back the progress_finished
                         }
-                        //TODO change form filled in user model if answered question of the user is 58 (answered everything)
                     }),
                 TextColumn::make('admin_response')
                     ->label('پاسخ')
             ])
+            ->defaultPaginationPageOption(5)
+            ->query(function(){
+                return Answer::whereHas('question',function (Builder $query){
+                    $query->where('self_proclaimed','=',1);
+                });
+            })
             ->recordUrl(null)
             ->filters([
                 Tables\Filters\SelectFilter::make('user')->relationship('user','name')->label('هیئت علمی')->searchable()->preload(),
-                Tables\Filters\SelectFilter::make('question')->relationship('question','description')->label('شرح سوال')->searchable()->preload(),
-                Tables\Filters\SelectFilter::make('question')->relationship('question','number_code')->label('شماره آیین نامه سوال')->searchable()->preload(),
+                Tables\Filters\SelectFilter::make('question')->relationship('question','number_code',fn (Builder $query) => $query->where('self_proclaimed','=',1))->label('شماره آیین نامه سوال')->searchable()->preload(),
                 Tables\Filters\SelectFilter::make('admin_approval')
                     ->label('تاییده کارشناس')
                     ->options([

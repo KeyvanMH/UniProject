@@ -364,8 +364,7 @@ class EditQuestion extends Page implements HasForms
             ->modalSubmitAction(false)
             ->modalCloseButton()
             ->modalCancelAction()
-            ->modalCancelActionLabel('بستن')
-            ;
+            ->modalCancelActionLabel('بستن');
     }
 
     protected static string | array $routeMiddleware = [
@@ -384,8 +383,6 @@ class EditQuestion extends Page implements HasForms
             $this->form->fill();
         }
     }
-
-
 
     public function form(Form $form): Form{
         $dissertations = Dissertation::where('user_id','=',auth()->user()->id)->first();
@@ -1761,11 +1758,7 @@ class EditQuestion extends Page implements HasForms
                                 ->disabled(),
                         ])->columnSpanFull(),
                     ]),
-            ])->submitAction(new HtmlString(Blade::render(<<<BLADE
-    <x-filament::button type="submit" size="sm">
-        ذخیره
-    </x-filament::button>
-BLADE)))
+            ])
         ]);
     }
 
@@ -2015,11 +2008,6 @@ BLADE)))
             auth()->user()->save();
         });
 
-
-        Notification::make()
-                ->success()
-                ->title(__('filament-panels::resources/pages/edit-record.notifications.saved.title'))
-                ->send();
             redirect()->to('/pazhoohane/client-answers');
     }
     public static function canAccess(): bool

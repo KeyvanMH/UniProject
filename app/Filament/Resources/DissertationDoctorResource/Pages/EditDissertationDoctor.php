@@ -28,6 +28,7 @@ class EditDissertationDoctor extends EditRecord
                     ->columnSpanFull(),
                 Textarea::make('dissertation_1401')
                     ->label('پایان نامه های ۱۴۰۱')
+                    ->rows(10)
                     ->formatStateUsing(function($state){
                         if(is_array($state) or is_array(json_decode($state,true))) {
                             return implode('/', json_decode($state, true));
@@ -45,6 +46,7 @@ class EditDissertationDoctor extends EditRecord
                 ,
                 Textarea::make('dissertation_1402')
                     ->label('پایان نامه های ۱۴۰۲')
+                    ->rows(10)
                     ->formatStateUsing(function($state){
                         if(is_array($state) or is_array(json_decode($state,true))) {
                             return implode('/', json_decode($state, true));
