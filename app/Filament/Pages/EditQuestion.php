@@ -1758,7 +1758,11 @@ class EditQuestion extends Page implements HasForms
                                 ->disabled(),
                         ])->columnSpanFull(),
                     ]),
-            ])
+            ])->submitAction(new HtmlString(Blade::render(<<<BLADE
+    <x-filament::button type="submit" size="sm">
+        ذخیره
+    </x-filament::button>
+BLADE)))
         ]);
     }
 
