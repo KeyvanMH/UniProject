@@ -42,7 +42,8 @@ class ResultResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('user.name')
-                    ->label('نام هیئت علمی'),
+                    ->label('نام هیئت علمی')
+                    ->searchable(),
                 Tables\Columns\TextColumn::make('sum_price')
                     ->label('مبلغ بدون سئوالات درصدی')
                     ->money('rial'),
@@ -82,7 +83,9 @@ class ResultResource extends Resource
                         Column::make('child_number')->heading('گرنت تعداد فرزند'),
                         Column::make('is_married_woman')->heading('گرنت وضعیت تاهل'),
                         Column::make('total_grant_price')->heading('مبلغ نهایی '),
-                        Column::make('user.progress_finished')->heading('نهایی شدن فرایند'),
+                        Column::make('user.progress_finished')->heading('نهایی شدن فرایند')->formatStateUsing(function ($state){
+                            return $state?'اتمام پروسه':'عدم اتمام پروسه';
+                        }),
                     ])
                         ->rtl()
                         ->withFilename(date('Y - M - D').'مبلغ نهایی اعضا'),

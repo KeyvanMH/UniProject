@@ -16,6 +16,9 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use pxlrbt\FilamentExcel\Actions\Tables\ExportBulkAction;
+use pxlrbt\FilamentExcel\Columns\Column;
+use pxlrbt\FilamentExcel\Exports\ExcelExport;
 
 class AdminsAnswerResource extends Resource
 {
@@ -57,7 +60,8 @@ class AdminsAnswerResource extends Resource
                 TextColumn::make('grant_price')->label('مبلغ پژوهانه')->money('rial'),
             ])
             ->filters([
-                //
+                Tables\Filters\SelectFilter::make('user')->relationship('user','name')->label('هیئت علمی')->searchable()->preload(),
+                Tables\Filters\SelectFilter::make('question')->relationship('question','number_code',fn (Builder $query) => $query->where('self_proclaimed','=',1))->label('شماره آیین نامه سوال')->searchable()->preload(),
             ])
             ->actions([
 //                Tables\Actions\EditAction::make(),
@@ -69,6 +73,18 @@ class AdminsAnswerResource extends Resource
                 });
             })
             ->bulkActions([
+                ExportBulkAction::make()->exports([
+                    ExcelExport::make()->withColumns([
+                        Column::make('user.name')->heading('نام هيئت علمی'),
+                        Column::make('question.number_code')->heading('شماره آیین نامه سئوال'),
+                        Column::make('question.description')->heading('شرح مختصر سئوال'),
+                        Column::make('year_1401')->heading('سال ۱۴۰۱'),
+                        Column::make('year_1402')->heading('سال ۱۴۰۲'),
+                        Column::make('grant_price')->heading('مبلغ پژوهانه'),
+                    ])
+                        ->rtl()
+                        ->withFilename(date('Y - M - D').'-وضعیت  پاسخ های کارشناس'),
+                ])
 //                Tables\Actions\BulkActionGroup::make([
 //                    Tables\Actions\DeleteBulkAction::make(),
 //                ]),

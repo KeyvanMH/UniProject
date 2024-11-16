@@ -15,6 +15,9 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use pxlrbt\FilamentExcel\Actions\Tables\ExportBulkAction;
+use pxlrbt\FilamentExcel\Columns\Column;
+use pxlrbt\FilamentExcel\Exports\ExcelExport;
 
 class AllAnswerResource extends Resource
 {
@@ -57,12 +60,25 @@ class AllAnswerResource extends Resource
             ])
             ->defaultPaginationPageOption(5)
             ->filters([
-
+                Tables\Filters\SelectFilter::make('user')->relationship('user','name')->label('هیئت علمی')->searchable()->preload(),
+                Tables\Filters\SelectFilter::make('question')->relationship('question','number_code')->label('شماره آیین نامه سوال')->searchable()->preload(),
             ])
             ->actions([
             ])
             ->bulkActions([
-                //todo add excel output
+                ExportBulkAction::make()->exports([
+                    ExcelExport::make()->withColumns([
+                        Column::make('user.name')->heading('نام هيئت علمی'),
+                        Column::make('question.number_code')->heading('شماره آیین نامه سئوال'),
+                        Column::make('question.description')->heading('شرح مختصر سئوال'),
+                        Column::make('year_1401')->heading('سال ۱۴۰۱'),
+                        Column::make('year_1402')->heading('سال ۱۴۰۲'),
+                        Column::make('grant_price')->heading('مبلغ پژوهانه'),
+                    ])
+                        ->rtl()
+                        ->withFilename(date('Y - M - D'). '-تجمیع پاسخ ها'),
+                    //todo maybe make the excel name dynamic
+                ])
             ]);
     }
 
