@@ -209,6 +209,7 @@ class EditClientAnswer extends EditRecord {
                 ->label('مربوط به سال ۱۴۰۱')
                 ->afterStateUpdated(function ($set,$get,$state,$record){
                     if($record->question->grant == 2){
+                        //todo 
                         $set('grant_price',(($get('year_1401')+$get('year_1402'))/2)*$record->question->coefficient*210974088);
                     }elseif($record->question->grant == 1){
                         $set('grant_price',(($get('year_1401')+$get('year_1402'))/2)*$record->question->coefficient*8939580);
@@ -218,6 +219,7 @@ class EditClientAnswer extends EditRecord {
                 ->label('مربوط به سال ۱۴۰۲')
                 ->afterStateUpdated(function ($set,$get,$state,$record){
                     if($record->question->grant == 2){
+                        //todo
                         $set('grant_price',(($get('year_1401')+$get('year_1402'))/2)*$record->question->coefficient*210974088);
                     }elseif($record->question->grant == 1){
                         $set('grant_price',(($get('year_1401')+$get('year_1402'))/2)*$record->question->coefficient*8939580);

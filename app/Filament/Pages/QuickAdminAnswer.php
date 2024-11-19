@@ -709,8 +709,10 @@ class QuickAdminAnswer extends Page
                     if($yearIs1401){
                         $answer->year_1401 = $value;
                         if ($questionData->grant == 1){
+                            //todo
                             $answer->grant_price = (($value+$answer->year_1402)/2) * $questionData->coefficient * 8939580;
                         }elseif ($questionData->grant == 2){
+                            //todo
                             $answer->grant_price = (($value + $answer->year_1402)/2) * $questionData->coefficient * 210974088;
                         }
                     }else{
@@ -738,6 +740,7 @@ class QuickAdminAnswer extends Page
                                 'year_1401' => $value,
                                 'year_1402' => 0,
                                 'admin_approval' => 1,
+                                //todo
                                 'grant_price' => ($value/2) * $questionData->conefficient * 8939580,
 //                                'admin_response' => 'تکمیل توسط کارشناس',
                             ]);
@@ -748,6 +751,7 @@ class QuickAdminAnswer extends Page
                                 'year_1401' => $value,
                                 'year_1402' => 0,
                                 'admin_approval' => 1,
+                                //todo
                                 'grant_price' => ($value/2)* $questionData->conefficient * 210974088,
 //                                'admin_response' => 'تکمیل توسط کارشناس',
                             ]);
@@ -761,6 +765,7 @@ class QuickAdminAnswer extends Page
                                 'year_1401' => 0,
                                 'year_1402' => $value,
                                 'admin_approval' => 1,
+                                //todo
                                 'grant_price' => ($value/2)* $questionData->conefficient * 8939580,
 //                                'admin_response' => 'تکمیل توسط کارشناس',
                             ]);
@@ -771,6 +776,7 @@ class QuickAdminAnswer extends Page
                                 'year_1401' => 0,
                                 'year_1402' => $value,
                                 'admin_approval' => 1,
+                                //todo
                                 'grant_price' => ($value/2)* $questionData->conefficient * 210974088,
 //                                'admin_response' => 'تکمیل توسط کارشناس',
                             ]);

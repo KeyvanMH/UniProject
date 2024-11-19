@@ -133,6 +133,7 @@ class AdminsAnswer extends Page implements HasForms
             $grant = (($data['year_1401'] + $data['year_1402'])/2)*$question->coefficient;
             switch ($question->grant){
                 case 1:
+                    //todo
                     $grant_price = $grant*8939580;
                     break;
                 case 2:
