@@ -24,12 +24,13 @@ class AllAnswerResource extends Resource
     protected static ?string $model = Answer::class;
     protected static ?string $label = 'تجمیع پاسخ سئوالات';
     protected static ?string $navigationGroup = 'گزارش گیری';
+
     protected static ?string $pluralLabel = 'تجمیع پاسخ سئوالات';
     protected static string | array $routeMiddleware = [
         AdminMiddleware::class,
     ];
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-bars-4';
 
     public static function form(Form $form): Form
     {
@@ -58,6 +59,7 @@ class AllAnswerResource extends Resource
                 Tables\Columns\TextColumn::make('year_1402')->label('سال ۱۴۰۲'),
                 TextColumn::make('grant_price')->label('مبلغ پژوهانه')->money('rial'),
             ])
+            ->paginationPageOptions(['5','10','15','23','50','58'])
             ->defaultPaginationPageOption(5)
             ->filters([
                 Tables\Filters\SelectFilter::make('user')->relationship('user','name')->label('هیئت علمی')->searchable()->preload(),
@@ -76,8 +78,7 @@ class AllAnswerResource extends Resource
                         Column::make('grant_price')->heading('مبلغ پژوهانه'),
                     ])
                         ->rtl()
-                        ->withFilename(date('Y - M - D'). '-تجمیع پاسخ ها'),
-                    //todo maybe make the excel name dynamic
+                        ->askForFilename(label: 'نام فایل اکسل')
                 ])
             ]);
     }

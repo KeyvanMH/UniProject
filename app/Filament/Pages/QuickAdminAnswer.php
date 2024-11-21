@@ -2,6 +2,7 @@
 
 namespace App\Filament\Pages;
 
+use App\Filament\Const\DefaultConst;
 use App\Models\Answer;
 use App\Models\Question;
 use App\Models\Result;
@@ -23,7 +24,7 @@ class QuickAdminAnswer extends Page
     use InteractsWithForms;
 
     public ?array $data = [];
-    protected static ?string $navigationIcon = 'heroicon-o-document-text';
+    protected static ?string $navigationIcon = 'heroicon-o-pencil';
     protected static ?string $navigationGroup = 'تکمیلی کارشناس';
     protected static ?string $title = "پاسخگویی سئوالات به صورت تجمیعی ";
     protected static ?string $navigationLabel = "پاسخگویی سئوالات به صورت تجمیعی";
@@ -709,18 +710,16 @@ class QuickAdminAnswer extends Page
                     if($yearIs1401){
                         $answer->year_1401 = $value;
                         if ($questionData->grant == 1){
-                            //todo
-                            $answer->grant_price = (($value+$answer->year_1402)/2) * $questionData->coefficient * 8939580;
+                            $answer->grant_price = (($value+$answer->year_1402)/2) * $questionData->coefficient * DefaultConst::grantOne;
                         }elseif ($questionData->grant == 2){
-                            //todo
-                            $answer->grant_price = (($value + $answer->year_1402)/2) * $questionData->coefficient * 210974088;
+                            $answer->grant_price = (($value + $answer->year_1402)/2) * $questionData->coefficient * DefaultConst::grantTwo;
                         }
                     }else{
                         $answer->year_1402 = $value;
                         if ($questionData->grant == 1){
-                            $answer->grant_price = (($value + $answer->year_1401)/2) * $questionData->coefficient * 8939580;
+                            $answer->grant_price = (($value + $answer->year_1401)/2) * $questionData->coefficient * DefaultConst::grantOne;
                         }elseif ($questionData->grant == 2){
-                            $answer->grant_price = (($value + $answer->year_1401)/2) * $questionData->coefficient * 210974088;
+                            $answer->grant_price = (($value + $answer->year_1401)/2) * $questionData->coefficient * DefaultConst::grantTwo;
                         }
                     }
                     $answer->save();
@@ -740,8 +739,7 @@ class QuickAdminAnswer extends Page
                                 'year_1401' => $value,
                                 'year_1402' => 0,
                                 'admin_approval' => 1,
-                                //todo
-                                'grant_price' => ($value/2) * $questionData->conefficient * 8939580,
+                                'grant_price' => ($value/2) * $questionData->conefficient * DefaultConst::grantOne,
 //                                'admin_response' => 'تکمیل توسط کارشناس',
                             ]);
                         }elseif($questionData->grant == 2){
@@ -751,8 +749,7 @@ class QuickAdminAnswer extends Page
                                 'year_1401' => $value,
                                 'year_1402' => 0,
                                 'admin_approval' => 1,
-                                //todo
-                                'grant_price' => ($value/2)* $questionData->conefficient * 210974088,
+                                'grant_price' => ($value/2)* $questionData->conefficient * DefaultConst::grantTwo,
 //                                'admin_response' => 'تکمیل توسط کارشناس',
                             ]);
                         }
@@ -765,8 +762,7 @@ class QuickAdminAnswer extends Page
                                 'year_1401' => 0,
                                 'year_1402' => $value,
                                 'admin_approval' => 1,
-                                //todo
-                                'grant_price' => ($value/2)* $questionData->conefficient * 8939580,
+                                'grant_price' => ($value/2)* $questionData->conefficient * DefaultConst::grantOne,
 //                                'admin_response' => 'تکمیل توسط کارشناس',
                             ]);
                         }elseif($questionData->grant == 2){
@@ -777,7 +773,7 @@ class QuickAdminAnswer extends Page
                                 'year_1402' => $value,
                                 'admin_approval' => 1,
                                 //todo
-                                'grant_price' => ($value/2)* $questionData->conefficient * 210974088,
+                                'grant_price' => ($value/2)* $questionData->conefficient * DefaultConst::grantTwo,
 //                                'admin_response' => 'تکمیل توسط کارشناس',
                             ]);
                         }

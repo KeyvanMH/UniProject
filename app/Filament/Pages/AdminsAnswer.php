@@ -2,6 +2,7 @@
 
 namespace App\Filament\Pages;
 
+use App\Filament\Const\DefaultConst;
 use App\Http\Middleware\AdminMiddleware;
 use App\Models\Answer;
 use App\Models\Question;
@@ -25,7 +26,7 @@ class AdminsAnswer extends Page implements HasForms
 
     public ?array $data = [];
 
-    protected static ?string $navigationIcon = 'heroicon-o-document-text';
+    protected static ?string $navigationIcon = 'heroicon-o-pencil';
 
     protected static string $view = 'filament.pages.admins-answer';
     protected static ?string $title = "پاسخگویی سئوالات به صورت تکی";
@@ -133,8 +134,7 @@ class AdminsAnswer extends Page implements HasForms
             $grant = (($data['year_1401'] + $data['year_1402'])/2)*$question->coefficient;
             switch ($question->grant){
                 case 1:
-                    //todo
-                    $grant_price = $grant*8939580;
+                    $grant_price = $grant*DefaultConst::grantOne;
                     break;
                 case 2:
                     $grant_price = $grant*210974088;

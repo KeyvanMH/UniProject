@@ -25,7 +25,7 @@ class AdminsAnswerResource extends Resource
     protected static ?string $model = Answer::class;
 
     protected static ?string $pluralLabel = 'وضعیت پاسخ های کارشناس';
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-s-clipboard-document-check';
     protected static ?string $navigationGroup = 'تکمیلی کارشناس';
     protected static ?int $navigationSort = 2;
     protected static string | array $routeMiddleware = [
@@ -66,6 +66,7 @@ class AdminsAnswerResource extends Resource
             ->actions([
 //                Tables\Actions\EditAction::make(),
             ])
+            ->paginationPageOptions(['5','10','20','50'])
             ->defaultPaginationPageOption(5)
             ->query(function(){
                 return Answer::whereHas('question',function (Builder $query){

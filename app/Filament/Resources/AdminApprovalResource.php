@@ -33,7 +33,7 @@ class AdminApprovalResource extends Resource
     protected static string | array $routeMiddleware = [
         AdminMiddleware::class,
     ];
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-s-check';
 
 //    public static function form(Form $form): Form
 //    {
@@ -151,6 +151,7 @@ class AdminApprovalResource extends Resource
                 TextColumn::make('admin_response')
                     ->label('پاسخ')
             ])
+            ->paginationPageOptions(['5','10','20','50'])
             ->defaultPaginationPageOption(5)
             ->query(function(){
                 return Answer::whereHas('question',function (Builder $query){

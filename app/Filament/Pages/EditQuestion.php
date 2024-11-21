@@ -2,6 +2,7 @@
 
 namespace App\Filament\Pages;
 
+use App\Filament\Const\DefaultConst;
 use App\Http\Middleware\PasswordChangedMiddleware;
 use App\Http\Middleware\ProcessFinishedMiddleware;
 use App\Http\Middleware\UserMiddleware;
@@ -1830,10 +1831,9 @@ BLADE)))
                                         'year_1401' => $input
                                     ]);
                                     if($question->grant == 1){
-                                        //todo
-                                        $created->grant_price = (($created->year_1402 + $created->year_1401)/2)*$question->coefficient*8939580;
+                                        $created->grant_price = (($created->year_1402 + $created->year_1401)/2)*$question->coefficient*DefaultConst::grantOne;
                                     }elseif($question->grant == 2){
-                                        $created->grant_price = (($created->year_1402 + $created->year_1401)/2)*$question->coefficient*210974088;
+                                        $created->grant_price = (($created->year_1402 + $created->year_1401)/2)*$question->coefficient*DefaultConst::grantTwo;
                                     }
                                     $created->save();
                                 } elseif ($yearIs1402) {
@@ -1843,10 +1843,9 @@ BLADE)))
                                         'year_1402' => $input
                                     ]);
                                     if($question->grant == 1){
-                                        //todo
-                                        $created->grant_price = (($created->year_1402 + $created->year_1401)/2)*$question->coefficient*8939580;
+                                        $created->grant_price = (($created->year_1402 + $created->year_1401)/2)*$question->coefficient*DefaultConst::grantOne;
                                     }elseif($question->grant == 2){
-                                        $created->grant_price = (($created->year_1402 + $created->year_1401)/2)*$question->coefficient*210974088;
+                                        $created->grant_price = (($created->year_1402 + $created->year_1401)/2)*$question->coefficient*DefaultConst::grantTwo;
                                     }
                                     $created->save();
                                 }
@@ -1890,20 +1889,18 @@ BLADE)))
                                     $answer->year_1401 = $input;
                                     $answer->save();
                                     if($question->grant == 1){
-                                        //todo
-                                        $answer->grant_price = (($answer->year_1402 + $answer->year_1401)/2)*$question->coefficient*8939580;
+                                        $answer->grant_price = (($answer->year_1402 + $answer->year_1401)/2)*$question->coefficient*DefaultConst::grantOne;
                                     }elseif($question->grant == 2){
-                                        $answer->grant_price = (($answer->year_1402 + $answer->year_1401)/2)*$question->coefficient*210974088;
+                                        $answer->grant_price = (($answer->year_1402 + $answer->year_1401)/2)*$question->coefficient*DefaultConst::grantTwo;
                                     }
                                     $answer->save();
                                 } elseif ($yearIs1402) {
                                     $answer->year_1402 = $input;
                                     $answer->save();
                                     if($question->grant == 1){
-                                        //todo
-                                        $answer->grant_price = (($answer->year_1402 + $answer->year_1401)/2)*$question->coefficient*8939580;
+                                        $answer->grant_price = (($answer->year_1402 + $answer->year_1401)/2)*$question->coefficient*DefaultConst::grantOne;
                                     }elseif($question->grant == 2){
-                                        $answer->grant_price = (($answer->year_1402 + $answer->year_1401)/2)*$question->coefficient*210974088;
+                                        $answer->grant_price = (($answer->year_1402 + $answer->year_1401)/2)*$question->coefficient*DefaultConst::grantTwo;
                                     }
                                     $answer->save();
                                 }

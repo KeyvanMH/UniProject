@@ -88,6 +88,24 @@ class UserResource extends Resource
                 ->label('سطح دسترسی')
                 ->formatStateUsing(fn ($state) => $state === 'user' ? 'کاربر' : 'کارشناس')
                 ->sortable(),
+
+            Tables\Columns\TextColumn::make('first_time_form_filled')
+                ->label('پر کردن فرم')
+                ->formatStateUsing(function ($state){
+                    if($state == 1){
+                        return ' پر کرده است';
+                    }else{
+                        return 'پر نکرده است';
+                    }
+                })
+                ->color(fn ($state) => match($state){
+                    0 => 'danger',
+                    1 => 'success',
+                    default => 'gray'
+                })
+//                ->toggleable(isToggledHiddenByDefault: true)
+                ->sortable(),
+
         ])
             ->recordUrl(null)
             ->filters([

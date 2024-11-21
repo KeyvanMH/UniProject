@@ -5,9 +5,12 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\ResultResource\Pages;
 use App\Filament\Resources\ResultResource\RelationManagers;
 use App\Http\Middleware\AdminMiddleware;
+use App\Models\Answer;
 use App\Models\Result;
 use Filament\Forms;
 use Filament\Forms\Form;
+use Filament\Forms\Get;
+use Filament\Forms\Set;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
@@ -27,7 +30,7 @@ class ResultResource extends Resource
     protected static string | array $routeMiddleware = [
         AdminMiddleware::class,
     ];
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-currency-dollar';
 
     public static function form(Form $form): Form
     {
@@ -44,12 +47,83 @@ class ResultResource extends Resource
                 Tables\Columns\TextColumn::make('user.name')
                     ->label('نام هیئت علمی')
                     ->searchable(),
+                Tables\Columns\TextColumn::make('dissertation')
+                    ->label('پایان نامه ارشد')
+                    ->toggleable(isToggledHiddenByDefault: true)
+                    ->default(function (Model $record){
+                        $answers = Answer::where([['user_id', $record->user_id],['admin_approval','=',1]])
+                            ->whereIn('question_id', ['2_10_1', '2_10_2', '2_10_3'])
+                            ->get()
+                            ->keyBy('question_id');
+
+                        return ($answers->get('2_10_1')->year_1401 ?? 0) +
+                            ($answers->get('2_10_2')->year_1401 ?? 0) +
+                            ($answers->get('2_10_3')->year_1401 ?? 0) +
+                            ($answers->get('2_10_1')->year_1402 ?? 0) +
+                            ($answers->get('2_10_2')->year_1402 ?? 0) +
+                            ($answers->get('2_10_3')->year_1402 ?? 0);
+                    }),
+                Tables\Columns\TextColumn::make('doctorDissertation')
+                    ->label('پایان نامه دکتری')
+                    ->toggleable(isToggledHiddenByDefault: true)
+                    ->default(function (Model $record){
+                        $answers = Answer::where([['user_id', $record->user_id],['admin_approval','=',1]])
+                            ->whereIn('question_id', ['2_11_1', '2_11_2', '2_11_3'])
+                            ->get()
+                            ->keyBy('question_id');
+
+                        return ($answers->get('2_11_1')->year_1401 ?? 0) +
+                            ($answers->get('2_11_2')->year_1401 ?? 0) +
+                            ($answers->get('2_11_3')->year_1401 ?? 0) +
+                            ($answers->get('2_11_1')->year_1402 ?? 0) +
+                            ($answers->get('2_11_2')->year_1402 ?? 0) +
+                            ($answers->get('2_11_3')->year_1402 ?? 0);
+                    }),
+                Tables\Columns\TextColumn::make('dissertationPrice')
+                    ->label('مبلغ پایان نامه ها')
+                    ->money('rial')
+                    ->toggleable(isToggledHiddenByDefault: true)
+                    ->default(function (Model $record,Set $set){
+                        $answers = Answer::where([['user_id', $record->user_id],['admin_approval','=',1]])
+                            ->whereIn('question_id', ['2_11_1', '2_11_2', '2_11_3','2_10_1','2_10_2','2_10_3'])
+                            ->get()
+                            ->keyBy('question_id');
+
+                        $dissertationPrice = ($answers->get('2_11_1')->grant_price ?? 0) +
+                            ($answers->get('2_11_2')->grant_price ?? 0) +
+                            ($answers->get('2_11_3')->grant_price ?? 0) +
+                            ($answers->get('2_10_1')->grant_price ?? 0) +
+                            ($answers->get('2_10_2')->grant_price ?? 0) +
+                            ($answers->get('2_10_3')->grant_price ?? 0);
+                        return $dissertationPrice;
+                    }),
+                Tables\Columns\TextColumn::make('otherPrice')
+                    ->label('مبلغ سوالات بدون پایان نامه')
+                    ->money('rial')
+                    ->toggleable(isToggledHiddenByDefault: true)
+                    ->default(function (Model $record){
+                        $answers = Answer::where([['user_id','=',$record->user_id],['admin_approval','=',1]])->get()->keyBy('question_id');
+                        $totalPrice = 0;
+                        foreach($answers as $answer){
+                            $totalPrice += $answer->grant_price;
+                        }
+                        return $totalPrice - (($answers->get('2_11_1')->grant_price ?? 0) +
+                                ($answers->get('2_11_2')->grant_price ?? 0) +
+                                ($answers->get('2_11_3')->grant_price ?? 0) +
+                                ($answers->get('2_10_1')->grant_price ?? 0) +
+                                ($answers->get('2_10_2')->grant_price ?? 0) +
+                                ($answers->get('2_10_3')->grant_price ?? 0));
+
+                    }),
                 Tables\Columns\TextColumn::make('sum_price')
+                    ->toggleable(isToggledHiddenByDefault: true)
                     ->label('مبلغ بدون سئوالات درصدی')
                     ->money('rial'),
                 Tables\Columns\TextColumn::make('child_number')
+                    ->toggleable(isToggledHiddenByDefault: true)
                     ->label('گرنت تعداد فرزند'),
                 Tables\Columns\TextColumn::make('is_married_woman')
+                    ->toggleable(isToggledHiddenByDefault: true)
                     ->label('گرنت وضعیت تاهل'),
                 Tables\Columns\TextColumn::make('total_grant_price')
                     ->money('rial')
@@ -66,11 +140,12 @@ class ResultResource extends Resource
                         0 => 'danger',
                         1 => 'success',
                         default => 'gray'
-                    })
+                    }),
             ])
             ->filters([
                 Tables\Filters\SelectFilter::make('user.name')->relationship('user','name')->label('هیئت علمی')->searchable()->preload(),
             ])
+            ->paginationPageOptions(['5','10','20','50'])
             ->defaultPaginationPageOption(5)
             ->actions([
             ])
@@ -88,7 +163,7 @@ class ResultResource extends Resource
                         }),
                     ])
                         ->rtl()
-                        ->withFilename(date('Y - M - D').'مبلغ نهایی اعضا'),
+                        ->askForFilename(label: 'نام فایل اکسل')
             ]),
             ]);
     }

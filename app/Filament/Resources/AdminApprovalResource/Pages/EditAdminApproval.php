@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\AdminApprovalResource\Pages;
 
+use App\Filament\Const\DefaultConst;
 use App\Filament\Resources\AdminApprovalResource;
 use App\Filament\Resources\ClientAnswerResource\Pages\EditClientAnswer;
 use Filament\Actions;
@@ -14,6 +15,7 @@ use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
 use Filament\Forms\Form;
+use Filament\Notifications\Notification;
 use Filament\Resources\Pages\EditRecord;
 use Illuminate\Support\Facades\Storage;
 
@@ -44,18 +46,19 @@ class EditAdminApproval extends EditRecord
                 ->label('مربوط به سال ۱۴۰۱')
                 ->afterStateUpdated(function ($set,$get,$state,$record){
                     if($record->question->grant == 2){
-                        $set('grant_price',(($get('year_1401')+$get('year_1402'))/2)*$record->question->coefficient*210974088);
+
+                        $set('grant_price',(($get('year_1401')+$get('year_1402'))/2)*$record->question->coefficient*DefaultConst::grantTwo);
                     }elseif($record->question->grant == 1){
-                        $set('grant_price',(($get('year_1401')+$get('year_1402'))/2)*$record->question->coefficient*8939580);
+                        $set('grant_price',(($get('year_1401')+$get('year_1402'))/2)*$record->question->coefficient*DefaultConst::grantOne);
                     }
                 });
             $this->secondFormInput = Toggle::make('year_1402')
                 ->label('مربوط به سال ۱۴۰۲')
                 ->afterStateUpdated(function ($set,$get,$state,$record){
                     if($record->question->grant == 2){
-                        $set('grant_price',(($get('year_1401')+$get('year_1402'))/2)*$record->question->coefficient*210974088);
+                        $set('grant_price',(($get('year_1401')+$get('year_1402'))/2)*$record->question->coefficient*DefaultConst::grantTwo);
                     }elseif($record->question->grant == 1){
-                        $set('grant_price',(($get('year_1401')+$get('year_1402'))/2)*$record->question->coefficient*8939580);
+                        $set('grant_price',(($get('year_1401')+$get('year_1402'))/2)*$record->question->coefficient*DefaultConst::grantOne);
                     }
                 });
         } elseif (in_array($this->record->question->number_code,$this->special)){
@@ -81,9 +84,9 @@ class EditAdminApproval extends EditRecord
                 ->reactive()
                 ->afterStateUpdated(function ($set,$get,$state,$record){
                     if($record->question->grant == 2){
-                        $set('grant_price',(($get('year_1401')+$get('year_1402'))/2)*$record->question->coefficient*210974088);
+                        $set('grant_price',(((float)$get('year_1401')+(float)$get('year_1402'))/2)*$record->question->coefficient*DefaultConst::grantTwo);
                     }elseif($record->question->grant == 1 ){
-                        $set('grant_price',(($get('year_1401')+$get('year_1402'))/2)*$record->question->coefficient*8939580);
+                        $set('grant_price',(((float)$get('year_1401')+(float)$get('year_1402'))/2)*$record->question->coefficient*DefaultConst::grantOne);
                     }
                 });
             $this->secondFormInput = TextInput::make('year_1402')
@@ -96,9 +99,9 @@ class EditAdminApproval extends EditRecord
                 ->reactive()
                 ->afterStateUpdated(function ($set,$get,$state,$record){
                     if($record->question->grant == 2  ){
-                        $set('grant_price',(($get('year_1401')+$get('year_1402'))/2)*$record->question->coefficient*210974088);
+                        $set('grant_price',(((float)$get('year_1401')+(float)$get('year_1402'))/2)*$record->question->coefficient*DefaultConst::grantTwo);
                     }elseif($record->question->grant == 1){
-                        $set('grant_price',(($get('year_1401')+$get('year_1402'))/2)*$record->question->coefficient*8939580);
+                        $set('grant_price',(((float)$get('year_1401')+(float)$get('year_1402'))/2)*$record->question->coefficient*DefaultConst::grantOne);
                     }
                 });
         }
@@ -108,5 +111,19 @@ class EditAdminApproval extends EditRecord
         return [
             Actions\DeleteAction::make(),
         ];
+    }
+    public function save(bool $shouldRedirect = true, bool $shouldSendSavedNotification = true): void {
+        $this->record->year_1401 = $this->data['year_1401'];
+        $this->record->year_1402 = $this->data['year_1402'];
+        if($this->record->question->grant == 2){
+            $this->record['grant_price'] = (($this->data['year_1401']+$this->data['year_1402'])/2) * $this->record->question->coefficient*DefaultConst::grantTwo;
+        }elseif($this->record->question->grant == 1){
+            $this->record['grant_price'] = (($this->data['year_1401']+$this->data['year_1402'])/2) * $this->record->question->coefficient*DefaultConst::grantOne;
+        }
+        $this->record->save();
+        Notification::make()
+            ->success()
+            ->title(__('filament-panels::resources/pages/edit-record.notifications.saved.title'))
+            ->send();
     }
 }

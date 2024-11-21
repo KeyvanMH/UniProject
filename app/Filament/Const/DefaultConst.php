@@ -3,6 +3,6 @@ namespace App\Filament\Const;
 
 class DefaultConst
 {
-    const grantOne = 0;
-    const grantTwo = 1;
+    const grantOne = 8939580;
+    const grantTwo = 229705946;
 }
