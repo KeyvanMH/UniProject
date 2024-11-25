@@ -5,4 +5,5 @@ class DefaultConst
 {
     const grantOne = 8939580;
     const grantTwo = 229705946;
+    const maxInput = 200;
 }

@@ -80,7 +80,7 @@ class EditAdminApproval extends EditRecord
                 ->required()
                 ->minValue(0)
                 ->default(0)
-                ->maxValue(100)
+                ->maxValue(DefaultConst::maxInput)
                 ->reactive()
                 ->afterStateUpdated(function ($set,$get,$state,$record){
                     if($record->question->grant == 2){
@@ -95,7 +95,7 @@ class EditAdminApproval extends EditRecord
                 ->label('مربوط به سال ۱۴۰۲')
                 ->required()
                 ->minValue(0)
-                ->maxValue(100)
+                ->maxValue(DefaultConst::maxInput)
                 ->reactive()
                 ->afterStateUpdated(function ($set,$get,$state,$record){
                     if($record->question->grant == 2  ){

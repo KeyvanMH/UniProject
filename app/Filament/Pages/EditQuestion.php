@@ -49,116 +49,116 @@ class EditQuestion extends Page implements HasForms
     public $defaultAction = 'formTutorial';
     protected $messages = [
         'number_2_5_1401.min' => 'لطفا عددی بزرگتر از ۰ وارد کنید.',
-        'number_2_5_1401.max.' => 'لطفا عددی کمتر از ۱۰۰ وارد کنید.',
+        'number_2_5_1401.max.' => 'لطفا عددی کمتر از ۲۰۰ وارد کنید.',
         'number_2_5_1402.min' => 'لطفا عددی بزرگتر از ۰ وارد کنید.',
-        'number_2_5_1402.max' => 'لطفا عددی کمتر از ۱۰۰ وارد کنید.',
+        'number_2_5_1402.max' => 'لطفا عددی کمتر از ۲۰۰ وارد کنید.',
 
 
         'number_2_6_1401.min' => 'لطفا عددی بزرگتر از ۰ وارد کنید.',
-        'number_2_6_1401.max' => 'لطفا عددی کمتر از ۱۰۰ وارد کنید.',
+        'number_2_6_1401.max' => 'لطفا عددی کمتر از ۲۰۰ وارد کنید.',
         'number_2_6_1402.min' => 'لطفا عددی بزرگتر از ۰ وارد کنید.',
-        'number_2_6_1402.max' => 'لطفا عددی کمتر از ۱۰۰ وارد کنید.',
+        'number_2_6_1402.max' => 'لطفا عددی کمتر از ۲۰۰ وارد کنید.',
 
         'number_2_7_1401.min' => 'لطفا عددی بزرگتر از ۰ وارد کنید.',
-        'number_2_7_1401.max' => 'لطفا عددی کمتر از ۱۰۰ وارد کنید.',
+        'number_2_7_1401.max' => 'لطفا عددی کمتر از ۲۰۰ وارد کنید.',
         'number_2_7_1402.min' => 'لطفا عددی بزرگتر از ۰ وارد کنید.',
-        'number_2_7_1402.max' => 'لطفا عددی کمتر از ۱۰۰ وارد کنید.',
+        'number_2_7_1402.max' => 'لطفا عددی کمتر از ۲۰۰ وارد کنید.',
 
         'number_2_9_1_1401.min' => 'لطفا عددی بزرگتر از ۰ وارد کنید.',
-        'number_2_9_1_1401.max' => 'لطفا عددی کمتر از ۱۰۰ وارد کنید.',
+        'number_2_9_1_1401.max' => 'لطفا عددی کمتر از ۲۰۰ وارد کنید.',
         'number_2_9_1_1402.min' => 'لطفا عددی بزرگتر از ۰ وارد کنید.',
-        'number_2_9_1_1402.max' => 'لطفا عددی کمتر از ۱۰۰ وارد کنید.',
+        'number_2_9_1_1402.max' => 'لطفا عددی کمتر از ۲۰۰ وارد کنید.',
 
         'number_2_9_2_1401.min' => 'لطفا عددی بزرگتر از ۰ وارد کنید.',
-        'number_2_9_2_1401.max' => 'لطفا عددی کمتر از ۱۰۰ وارد کنید.',
+        'number_2_9_2_1401.max' => 'لطفا عددی کمتر از ۲۰۰ وارد کنید.',
         'number_2_9_2_1402.min' => 'لطفا عددی بزرگتر از ۰ وارد کنید.',
-        'number_2_9_2_1402.max' => 'لطفا عددی کمتر از ۱۰۰ وارد کنید.',
+        'number_2_9_2_1402.max' => 'لطفا عددی کمتر از ۲۰۰ وارد کنید.',
 
         'number_2_24_1401.min' => 'لطفا عددی بزرگتر از ۰ وارد کنید.',
-        'number_2_24_1401.max' => 'لطفا عددی کمتر از ۱۰۰ وارد کنید.',
+        'number_2_24_1401.max' => 'لطفا عددی کمتر از ۲۰۰ وارد کنید.',
         'number_2_24_1402.min' => 'لطفا عددی بزرگتر از ۰ وارد کنید.',
-        'number_2_24_1402.max' => 'لطفا عددی کمتر از ۱۰۰ وارد کنید.',
+        'number_2_24_1402.max' => 'لطفا عددی کمتر از ۲۰۰ وارد کنید.',
 
         'number_2_25_1401.min' => 'لطفا عددی بزرگتر از ۰ وارد کنید.',
-        'number_2_25_1401.max' => 'لطفا عددی کمتر از ۱۰۰ وارد کنید.',
+        'number_2_25_1401.max' => 'لطفا عددی کمتر از ۲۰۰ وارد کنید.',
         'number_2_25_1402.min' => 'لطفا عددی بزرگتر از ۰ وارد کنید.',
-        'number_2_25_1402.max' => 'لطفا عددی کمتر از ۱۰۰ وارد کنید.',
+        'number_2_25_1402.max' => 'لطفا عددی کمتر از ۲۰۰ وارد کنید.',
 
         'number_2_26_1401.min' => 'لطفا عددی بزرگتر از ۰ وارد کنید.',
-        'number_2_26_1401.max' => 'لطفا عددی کمتر از ۱۰۰ وارد کنید.',
+        'number_2_26_1401.max' => 'لطفا عددی کمتر از ۲۰۰ وارد کنید.',
         'number_2_26_1402.min' => 'لطفا عددی بزرگتر از ۰ وارد کنید.',
-        'number_2_26_1402.max' => 'لطفا عددی کمتر از ۱۰۰ وارد کنید.',
+        'number_2_26_1402.max' => 'لطفا عددی کمتر از ۲۰۰ وارد کنید.',
 
         'number_2_27_1401.min' => 'لطفا عددی بزرگتر از ۰ وارد کنید.',
-        'number_2_27_1401.max' => 'لطفا عددی کمتر از ۱۰۰ وارد کنید.',
+        'number_2_27_1401.max' => 'لطفا عددی کمتر از ۲۰۰ وارد کنید.',
         'number_2_27_1402.min' => 'لطفا عددی بزرگتر از ۰ وارد کنید.',
-        'number_2_27_1402.max' => 'لطفا عددی کمتر از ۱۰۰ وارد کنید.',
+        'number_2_27_1402.max' => 'لطفا عددی کمتر از ۲۰۰ وارد کنید.',
 
         'number_2_28_1401.min' => 'لطفا عددی بزرگتر از ۰ وارد کنید.',
-        'number_2_28_1401.max' => 'لطفا عددی کمتر از ۱۰۰ وارد کنید.',
+        'number_2_28_1401.max' => 'لطفا عددی کمتر از ۲۰۰ وارد کنید.',
         'number_2_28_1402.min' => 'لطفا عددی بزرگتر از ۰ وارد کنید.',
-        'number_2_28_1402.max' => 'لطفا عددی کمتر از ۱۰۰ وارد کنید.',
+        'number_2_28_1402.max' => 'لطفا عددی کمتر از ۲۰۰ وارد کنید.',
 
         'number_2_29_1401.min' => 'لطفا عددی بزرگتر از ۰ وارد کنید.',
-        'number_2_29_1401.max' => 'لطفا عددی کمتر از ۱۰۰ وارد کنید.',
+        'number_2_29_1401.max' => 'لطفا عددی کمتر از ۲۰۰ وارد کنید.',
         'number_2_29_1402.min' => 'لطفا عددی بزرگتر از ۰ وارد کنید.',
-        'number_2_29_1402.max' => 'لطفا عددی کمتر از ۱۰۰ وارد کنید.',
+        'number_2_29_1402.max' => 'لطفا عددی کمتر از ۲۰۰ وارد کنید.',
 
         'number_2_36_1401.min' => 'لطفا عددی بزرگتر از ۰ وارد کنید.',
-        'number_2_36_1401.max' => 'لطفا عددی کمتر از ۱۰۰ وارد کنید.',
+        'number_2_36_1401.max' => 'لطفا عددی کمتر از ۲۰۰ وارد کنید.',
         'number_2_36_1402.min' => 'لطفا عددی بزرگتر از ۰ وارد کنید.',
-        'number_2_36_1402.max' => 'لطفا عددی کمتر از ۱۰۰ وارد کنید.',
+        'number_2_36_1402.max' => 'لطفا عددی کمتر از ۲۰۰ وارد کنید.',
 
         'number_2_37_1401.min' => 'لطفا عددی بزرگتر از ۰ وارد کنید.',
-        'number_2_37_1401.max' => 'لطفا عددی کمتر از ۱۰۰ وارد کنید.',
+        'number_2_37_1401.max' => 'لطفا عددی کمتر از ۲۰۰ وارد کنید.',
         'number_2_37_1402.min' => 'لطفا عددی بزرگتر از ۰ وارد کنید.',
-        'number_2_37_1402.max' => 'لطفا عددی کمتر از ۱۰۰ وارد کنید.',
+        'number_2_37_1402.max' => 'لطفا عددی کمتر از ۲۰۰ وارد کنید.',
 
         'number_2_38_1401.min' => 'لطفا عددی بزرگتر از ۰ وارد کنید.',
-        'number_2_38_1401.max' => 'لطفا عددی کمتر از ۱۰۰ وارد کنید.',
+        'number_2_38_1401.max' => 'لطفا عددی کمتر از ۲۰۰ وارد کنید.',
         'number_2_38_1402.min' => 'لطفا عددی بزرگتر از ۰ وارد کنید.',
-        'number_2_38_1402.max' => 'لطفا عددی کمتر از ۱۰۰ وارد کنید.',
+        'number_2_38_1402.max' => 'لطفا عددی کمتر از ۲۰۰ وارد کنید.',
 
 
         'number_2_10_1_1401.min' => 'لطفا عددی بزرگتر از ۰ وارد کنید.',
-        'number_2_10_1_1401.max' => 'لطفا عددی کمتر از ۱۰۰ وارد کنید.',
+        'number_2_10_1_1401.max' => 'لطفا عددی کمتر از ۲۰۰ وارد کنید.',
         'number_2_10_1_1402.min' => 'لطفا عددی بزرگتر از ۰ وارد کنید.',
-        'number_2_10_1_1402.max' => 'لطفا عددی کمتر از ۱۰۰ وارد کنید.',
+        'number_2_10_1_1402.max' => 'لطفا عددی کمتر از ۲۰۰ وارد کنید.',
 
         'number_2_10_2_1401.min' => 'لطفا عددی بزرگتر از ۰ وارد کنید.',
-        'number_2_10_2_1401.max' => 'لطفا عددی کمتر از ۱۰۰ وارد کنید.',
+        'number_2_10_2_1401.max' => 'لطفا عددی کمتر از ۲۰۰ وارد کنید.',
         'number_2_10_2_1402.min' => 'لطفا عددی بزرگتر از ۰ وارد کنید.',
-        'number_2_10_2_1402.max' => 'لطفا عددی کمتر از ۱۰۰ وارد کنید.',
+        'number_2_10_2_1402.max' => 'لطفا عددی کمتر از ۲۰۰ وارد کنید.',
 
         'number_2_10_3_1401.min' => 'لطفا عددی بزرگتر از ۰ وارد کنید.',
-        'number_2_10_3_1401.max' => 'لطفا عددی کمتر از ۱۰۰ وارد کنید.',
+        'number_2_10_3_1401.max' => 'لطفا عددی کمتر از ۲۰۰ وارد کنید.',
         'number_2_10_3_1402.min' => 'لطفا عددی بزرگتر از ۰ وارد کنید.',
-        'number_2_10_3_1402.max' => 'لطفا عددی کمتر از ۱۰۰ وارد کنید.',
+        'number_2_10_3_1402.max' => 'لطفا عددی کمتر از ۲۰۰ وارد کنید.',
 
         'number_2_11_1_1401.min' => 'لطفا عددی بزرگتر از ۰ وارد کنید.',
-        'number_2_11_1_1401.max' => 'لطفا عددی کمتر از ۱۰۰ وارد کنید.',
+        'number_2_11_1_1401.max' => 'لطفا عددی کمتر از ۲۰۰ وارد کنید.',
         'number_2_11_1_1402.min' => 'لطفا عددی بزرگتر از ۰ وارد کنید.',
-        'number_2_11_1_1402.max' => 'لطفا عددی کمتر از ۱۰۰ وارد کنید.',
+        'number_2_11_1_1402.max' => 'لطفا عددی کمتر از ۲۰۰ وارد کنید.',
 
         'number_2_11_2_1401.min' => 'لطفا عددی بزرگتر از ۰ وارد کنید.',
-        'number_2_11_2_1401.max' => 'لطفا عددی کمتر از ۱۰۰ وارد کنید.',
+        'number_2_11_2_1401.max' => 'لطفا عددی کمتر از ۲۰۰ وارد کنید.',
         'number_2_11_2_1402.min' => 'لطفا عددی بزرگتر از ۰ وارد کنید.',
-        'number_2_11_2_1402.max' => 'لطفا عددی کمتر از ۱۰۰ وارد کنید.',
+        'number_2_11_2_1402.max' => 'لطفا عددی کمتر از ۲۰۰ وارد کنید.',
 
         'number_2_11_3_1401.min' => 'لطفا عددی بزرگتر از ۰ وارد کنید.',
-        'number_2_11_3_1401.max' => 'لطفا عددی کمتر از ۱۰۰ وارد کنید.',
+        'number_2_11_3_1401.max' => 'لطفا عددی کمتر از ۲۰۰ وارد کنید.',
         'number_2_11_3_1402.min' => 'لطفا عددی بزرگتر از ۰ وارد کنید.',
-        'number_2_11_3_1402.max' => 'لطفا عددی کمتر از ۱۰۰ وارد کنید.',
+        'number_2_11_3_1402.max' => 'لطفا عددی کمتر از ۲۰۰ وارد کنید.',
 
         'number_2_20_1401.min' => 'لطفا عددی بزرگتر از ۰ وارد کنید.',
-        'number_2_20_1401.max' => 'لطفا عددی کمتر از ۱۰۰ وارد کنید.',
+        'number_2_20_1401.max' => 'لطفا عددی کمتر از ۲۰۰ وارد کنید.',
         'number_2_20_1402.min' => 'لطفا عددی بزرگتر از ۰ وارد کنید.',
-        'number_2_20_1402.max' => 'لطفا عددی کمتر از ۱۰۰ وارد کنید.',
+        'number_2_20_1402.max' => 'لطفا عددی کمتر از ۲۰۰ وارد کنید.',
 
         'number_3_3_2_1401.min' => 'لطفا عددی بزرگتر از ۰ وارد کنید.',
-        'number_3_3_2_1401.max' => 'لطفا عددی کمتر از ۱۰۰ وارد کنید.',
+        'number_3_3_2_1401.max' => 'لطفا عددی کمتر از ۲۰۰ وارد کنید.',
         'number_3_3_2_1402.min' => 'لطفا عددی بزرگتر از ۰ وارد کنید.',
-        'number_3_3_2_1402.max' => 'لطفا عددی کمتر از ۱۰۰ وارد کنید.',
+        'number_3_3_2_1402.max' => 'لطفا عددی کمتر از ۲۰۰ وارد کنید.',
     ];
     public $number_2_5_1401;
     public $number_2_5_1402;
@@ -436,7 +436,7 @@ class EditQuestion extends Page implements HasForms
                             ->helperText('امتیاز مربوط به سال ۱۴۰۱')
                             ->numeric()
                             ->minValue(0)
-                            ->maxValue(100)
+                            ->maxValue(DefaultConst::maxInput)
                             ,
 
                         TextInput::make('number_2_5_1402')
@@ -446,7 +446,7 @@ class EditQuestion extends Page implements HasForms
                             ->helperText('امتیاز مربوط به سال ۱۴۰۲')
                             ->numeric()
                             ->minValue(0)
-                            ->maxValue(100)
+                            ->maxValue(DefaultConst::maxInput)
                             ,
 
                         FileUpload::make('image_2_5_1401')
@@ -479,7 +479,7 @@ class EditQuestion extends Page implements HasForms
                             ->helperText('امتیاز مربوط به سال ۱۴۰۱')
                             ->numeric()
                             ->minValue(0)
-                            ->maxValue(100)
+                            ->maxValue(DefaultConst::maxInput)
                             ,
 
                         TextInput::make('number_2_6_1402')
@@ -489,7 +489,7 @@ class EditQuestion extends Page implements HasForms
                             ->helperText('امتیاز مربوط به سال ۱۴۰۲')
                             ->numeric()
                             ->minValue(0)
-                            ->maxValue(100)
+                            ->maxValue(DefaultConst::maxInput)
                             ,
 
                         FileUpload::make('image_2_6_1401')
@@ -524,7 +524,7 @@ class EditQuestion extends Page implements HasForms
                             ->helperText('امتیاز مربوط به سال ۱۴۰۱')
                             ->numeric()
                             ->minValue(0)
-                            ->maxValue(100)
+                            ->maxValue(DefaultConst::maxInput)
                             ,
                         TextInput::make('number_2_7_1402')
                             ->label('امتیاز های حاصل (طبق سامانه ژیرو) از برونداد های مشترک برای هر یک از اعضای موسسه های گروه دو و یک (دارای مصوبه شورای پژوهشی) - موسسه گروه یک موسسه ای است که هیئت امنا و ممیزه مستقل دارد. درغیر این صورت گروه ۲ می باشد.')
@@ -533,7 +533,7 @@ class EditQuestion extends Page implements HasForms
                             ->helperText('امتیاز مربوط به سال ۱۴۰۲')
                             ->numeric()
                             ->minValue(0)
-                            ->maxValue(100)
+                            ->maxValue(DefaultConst::maxInput)
                             ,
 
                         FileUpload::make('image_2_7_1401')
@@ -567,7 +567,7 @@ class EditQuestion extends Page implements HasForms
                             ->helperText('امتیاز مربوط به سال ۱۴۰۱')
                             ->numeric()
                             ->minValue(0)
-                                ->maxValue(100)
+                                ->maxValue(DefaultConst::maxInput)
                             ,
 
                         TextInput::make('number_2_9_1_1402')
@@ -577,7 +577,7 @@ class EditQuestion extends Page implements HasForms
                             ->helperText('امتیاز مربوط به سال ۱۴۰۲')
                             ->numeric()
                             ->minValue(0)
-                                ->maxValue(100)
+                                ->maxValue(DefaultConst::maxInput)
                             ,
 
 
@@ -614,7 +614,7 @@ class EditQuestion extends Page implements HasForms
                             ->helperText('امتیاز مربوط به سال ۱۴۰۱')
                             ->numeric()
                             ->minValue(0)
-                            ->maxValue(100)
+                            ->maxValue(DefaultConst::maxInput)
 
                             ,
                         TextInput::make('number_2_9_2_1402')
@@ -624,7 +624,7 @@ class EditQuestion extends Page implements HasForms
                             ->helperText('امتیاز مربوط به سال ۱۴۰۲')
                             ->numeric()
                             ->minValue(0)
-                            ->maxValue(100)
+                            ->maxValue(DefaultConst::maxInput)
 
                             ,
 
@@ -1046,7 +1046,7 @@ class EditQuestion extends Page implements HasForms
                                 ->numeric()
                                 ->default(0)
                                 ->minValue(0)
-                                ->maxValue(100)
+                                ->maxValue(DefaultConst::maxInput)
                                 ,
                             TextInput::make('number_2_10_1_1402')
                                 ->label('تعداد پایان نامه دانشجوی کارشناسی ارشد در پژوهش های نظری')
@@ -1055,7 +1055,7 @@ class EditQuestion extends Page implements HasForms
                                 ->helperText('امتیاز مربوط به سال ۱۴۰۲')
                                 ->numeric()
                                 ->minValue(0)
-                                ->maxValue(100)
+                                ->maxValue(DefaultConst::maxInput)
                                 ,
 
 
@@ -1121,7 +1121,7 @@ class EditQuestion extends Page implements HasForms
                                 ->helperText('امتیاز مربوط به سال ۱۴۰۱')
                                 ->numeric()
                                 ->minValue(0)
-                                ->maxValue(100)
+                                ->maxValue(DefaultConst::maxInput)
 
                                 ,
                             TextInput::make('number_2_10_2_1402')
@@ -1131,7 +1131,7 @@ class EditQuestion extends Page implements HasForms
                                 ->helperText('امتیاز مربوط به سال ۱۴۰۲')
                                 ->numeric()
                                 ->minValue(0)
-                                ->maxValue(100)
+                                ->maxValue(DefaultConst::maxInput)
                                 ,
 
                             Select::make('description_2_10_2_1401')
@@ -1195,7 +1195,7 @@ class EditQuestion extends Page implements HasForms
                                 ->helperText('امتیاز مربوط به سال ۱۴۰۱')
                                 ->numeric()
                                 ->minValue(0)
-                                ->maxValue(100)
+                                ->maxValue(DefaultConst::maxInput)
 
                                 ,
                             TextInput::make('number_2_10_3_1402')
@@ -1205,7 +1205,7 @@ class EditQuestion extends Page implements HasForms
                                 ->helperText('امتیاز مربوط به سال ۱۴۰۲')
                                 ->numeric()
                                 ->minValue(0)
-                                ->maxValue(100)
+                                ->maxValue(DefaultConst::maxInput)
 
                                 ,
 
@@ -1272,7 +1272,7 @@ class EditQuestion extends Page implements HasForms
                                 ->default(0)
                                 ->numeric()
                                 ->minValue(0)
-                                ->maxValue(100)
+                                ->maxValue(DefaultConst::maxInput)
                                 ,
                             TextInput::make('number_2_11_1_1402')
                                 ->label('تعداد رساله دانشجوری دکتری در هر یک از پژوهش های نظری')
@@ -1281,7 +1281,7 @@ class EditQuestion extends Page implements HasForms
                                 ->helperText('امتیاز مربوط به سال ۱۴۰۲')
                                 ->numeric()
                                 ->minValue(0)
-                                ->maxValue(100)
+                                ->maxValue(DefaultConst::maxInput)
                                 ,
 
 
@@ -1347,7 +1347,7 @@ class EditQuestion extends Page implements HasForms
                                 ->helperText('امتیاز مربوط به سال ۱۴۰۱')
                                 ->numeric()
                                 ->minValue(0)
-                                ->maxValue(100)
+                                ->maxValue(DefaultConst::maxInput)
 
                                 ,
                             TextInput::make('number_2_11_2_1402')
@@ -1357,7 +1357,7 @@ class EditQuestion extends Page implements HasForms
                                 ->helperText('امتیاز مربوط به سال ۱۴۰۲')
                                 ->numeric()
                                 ->minValue(0)
-                                ->maxValue(100)
+                                ->maxValue(DefaultConst::maxInput)
                                 ,
 
 
@@ -1422,7 +1422,7 @@ class EditQuestion extends Page implements HasForms
                                 ->helperText('امتیاز مربوط به سال ۱۴۰۱')
                                 ->numeric()
                                 ->minValue(0)
-                                ->maxValue(100)
+                                ->maxValue(DefaultConst::maxInput)
                                 ,
                             TextInput::make('number_2_11_3_1402')
                                 ->label('تعداد رساله دانشجوری دکتری در هر یک از پژوهش های تجربی')
@@ -1431,7 +1431,7 @@ class EditQuestion extends Page implements HasForms
                                 ->helperText('امتیاز مربوط به سال ۱۴۰۲')
                                 ->numeric()
                                 ->minValue(0)
-                                ->maxValue(100)
+                                ->maxValue(DefaultConst::maxInput)
 
                                 ,
 
@@ -1497,7 +1497,7 @@ class EditQuestion extends Page implements HasForms
                                 ->helperText('امتیاز مربوط به سال ۱۴۰۱')
                                 ->numeric()
                                 ->minValue(0)
-                                ->maxValue(100)
+                                ->maxValue(DefaultConst::maxInput)
 
                                 ,
 
@@ -1508,7 +1508,7 @@ class EditQuestion extends Page implements HasForms
                                 ->helperText('امتیاز مربوط به سال ۱۴۰۲')
                                 ->numeric()
                                 ->minValue(0)
-                                ->maxValue(100)
+                                ->maxValue(DefaultConst::maxInput)
 
                                 ,
 
@@ -1539,7 +1539,7 @@ class EditQuestion extends Page implements HasForms
                                 ->helperText('امتیاز مربوط به سال ۱۴۰۱')
                                 ->numeric()
                                 ->minValue(0)
-                                ->maxValue(100)
+                                ->maxValue(DefaultConst::maxInput)
                                 ,
 
                             TextInput::make('number_3_3_2_1402')
@@ -1549,7 +1549,7 @@ class EditQuestion extends Page implements HasForms
                                 ->default(0)
                                 ->numeric()
                                 ->minValue(0)
-                                ->maxValue(100)
+                                ->maxValue(DefaultConst::maxInput)
                                 ,
 
                             FileUpload::make('image_3_3_2_1401')
@@ -1576,7 +1576,7 @@ class EditQuestion extends Page implements HasForms
                                 ->default(0)
                                 ->numeric()
                                 ->minValue(0)
-                                ->maxValue(100)
+                                ->maxValue(DefaultConst::maxInput)
                                 ->required()
                             ,
                             TextInput::make('number_2_36_1402')
@@ -1585,7 +1585,7 @@ class EditQuestion extends Page implements HasForms
                                 ->default(0)
                                 ->numeric()
                                 ->minValue(0)
-                                ->maxValue(100)
+                                ->maxValue(DefaultConst::maxInput)
                                 ->required()
                             ,
                             FileUpload::make('image_2_36_1401')
@@ -1613,7 +1613,7 @@ class EditQuestion extends Page implements HasForms
                                 ->default(0)
                                 ->numeric()
                                 ->minValue(0)
-                                ->maxValue(100)
+                                ->maxValue(DefaultConst::maxInput)
                                 ->required()
                             ,
                             TextInput::make('number_2_37_1402')
@@ -1622,7 +1622,7 @@ class EditQuestion extends Page implements HasForms
                                 ->default(0)
                                 ->numeric()
                                 ->minValue(0)
-                                ->maxValue(100)
+                                ->maxValue(DefaultConst::maxInput)
                                 ->required()
                             ,
                             FileUpload::make('image_2_37_1401')
@@ -1650,7 +1650,7 @@ class EditQuestion extends Page implements HasForms
                                 ->default(0)
                                 ->numeric()
                                 ->minValue(0)
-                                ->maxValue(100)
+                                ->maxValue(DefaultConst::maxInput)
                                 ->required()
                             ,
                             TextInput::make('number_2_38_1402')
@@ -1659,7 +1659,7 @@ class EditQuestion extends Page implements HasForms
                                 ->default(0)
                                 ->numeric()
                                 ->minValue(0)
-                                ->maxValue(100)
+                                ->maxValue(DefaultConst::maxInput)
                                 ->required()
                             ,
                             FileUpload::make('image_2_38_1401')
