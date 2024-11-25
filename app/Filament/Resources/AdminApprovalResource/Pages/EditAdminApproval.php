@@ -120,6 +120,7 @@ class EditAdminApproval extends EditRecord
         }elseif($this->record->question->grant == 1){
             $this->record['grant_price'] = (($this->data['year_1401']+$this->data['year_1402'])/2) * $this->record->question->coefficient*DefaultConst::grantOne;
         }
+        $this->record->admin_response = $this->data['admin_response'];
         $this->record->save();
         Notification::make()
             ->success()
