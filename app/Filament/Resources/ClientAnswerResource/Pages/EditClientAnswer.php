@@ -244,7 +244,7 @@ class EditClientAnswer extends EditRecord {
                 ->required()
                 ->minValue(0)
                 ->default(0)
-                ->maxValue(100)
+                ->maxValue(DefaultConst::maxInput)
                 ->reactive()
                 ->afterStateUpdated(function ($set,$get,$state,$record){
                     if($record->question->grant == 2){
@@ -259,7 +259,7 @@ class EditClientAnswer extends EditRecord {
                 ->label('مربوط به سال ۱۴۰۲')
                 ->required()
                 ->minValue(0)
-                ->maxValue(100)
+                ->maxValue(DefaultConst::maxInput)
                 ->reactive()
                 ->afterStateUpdated(function ($set,$get,$state,$record){
                     if($record->question->grant == 2  ){

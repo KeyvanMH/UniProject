@@ -83,14 +83,14 @@ class QuickAdminAnswer extends Page
                         ->label('سال ۱۴۰۱')
                         ->numeric()
                         ->minValue(0)
-                        ->maxValue(100)
+                        ->maxValue(DefaultConst::maxInput)
                         ->reactive()
                         ,
                     TextInput::make('q1_2_1_1402')
                         ->label('سال ۱۴۰۲')
                         ->numeric()
                         ->minValue(0)
-                        ->maxValue(100)
+                        ->maxValue(DefaultConst::maxInput)
                         ->reactive()
                         ,
                 ])->columns(2),
@@ -100,14 +100,14 @@ class QuickAdminAnswer extends Page
                         ->label('سال ۱۴۰۱')
                         ->numeric()
                         ->minValue(0)
-                        ->maxValue(100)
+                        ->maxValue(DefaultConst::maxInput)
                         ->reactive()
                         ,
                     TextInput::make('q1_2_2_1402')
                         ->label('سال ۱۴۰۲')
                         ->numeric()
                         ->minValue(0)
-                        ->maxValue(100)
+                        ->maxValue(DefaultConst::maxInput)
                         ->reactive()
                         ,
                 ])->columns(2),
@@ -117,14 +117,14 @@ class QuickAdminAnswer extends Page
                         ->label('سال ۱۴۰۱')
                         ->numeric()
                         ->minValue(0)
-                        ->maxValue(100)
+                        ->maxValue(DefaultConst::maxInput)
                         ->reactive()
                         ,
                     TextInput::make('q1_2_3_1402')
                         ->label('سال ۱۴۰۲')
                         ->numeric()
                         ->minValue(0)
-                        ->maxValue(100)
+                        ->maxValue(DefaultConst::maxInput)
                         ->reactive()
                         ,
                 ])->columns(2),
@@ -134,14 +134,14 @@ class QuickAdminAnswer extends Page
                         ->label('سال ۱۴۰۱')
                         ->numeric()
                         ->minValue(0)
-                        ->maxValue(100)
+                        ->maxValue(DefaultConst::maxInput)
                         ->reactive()
                         ,
                     TextInput::make('q2_2_1402')
                         ->label('سال ۱۴۰۲')
                         ->numeric()
                         ->minValue(0)
-                        ->maxValue(100)
+                        ->maxValue(DefaultConst::maxInput)
                         ->reactive()
                         ,
                 ])->columns(2),
@@ -151,14 +151,14 @@ class QuickAdminAnswer extends Page
                         ->label('سال ۱۴۰۱')
                         ->numeric()
                         ->minValue(0)
-                        ->maxValue(100)
+                        ->maxValue(DefaultConst::maxInput)
                         ->reactive()
                         ,
                     TextInput::make('q2_3_1_1402')
                         ->label('سال ۱۴۰۲')
                         ->numeric()
                         ->minValue(0)
-                        ->maxValue(100)
+                        ->maxValue(DefaultConst::maxInput)
                         ->reactive()
                         ,
                 ])->columns(2),
@@ -168,14 +168,14 @@ class QuickAdminAnswer extends Page
                         ->label('سال ۱۴۰۱')
                         ->numeric()
                         ->minValue(0)
-                        ->maxValue(100)
+                        ->maxValue(DefaultConst::maxInput)
                         ->reactive()
                         ,
                     TextInput::make('q2_3_2_1402')
                         ->label('سال ۱۴۰۲')
                         ->numeric()
                         ->minValue(0)
-                        ->maxValue(100)
+                        ->maxValue(DefaultConst::maxInput)
                         ->reactive()
                         ,
                 ])->columns(2),
@@ -185,14 +185,14 @@ class QuickAdminAnswer extends Page
                         ->label('سال ۱۴۰۱')
                         ->numeric()
                         ->minValue(0)
-                        ->maxValue(100)
+                        ->maxValue(DefaultConst::maxInput)
                         ->reactive()
                         ,
                     TextInput::make('q2_4_1_1402')
                         ->label('سال ۱۴۰۲')
                         ->numeric()
                         ->minValue(0)
-                        ->maxValue(100)
+                        ->maxValue(DefaultConst::maxInput)
                         ->reactive()
                         ,
                 ])->columns(2),
@@ -202,14 +202,14 @@ class QuickAdminAnswer extends Page
                         ->label('سال ۱۴۰۱')
                         ->numeric()
                         ->minValue(0)
-                        ->maxValue(100)
+                        ->maxValue(DefaultConst::maxInput)
                         ->reactive()
                         ,
                     TextInput::make('q2_4_2_1402')
                         ->label('سال ۱۴۰۲')
                         ->numeric()
                         ->minValue(0)
-                        ->maxValue(100)
+                        ->maxValue(DefaultConst::maxInput)
                         ->reactive()
                         ,
                 ])->columns(2),
@@ -219,14 +219,14 @@ class QuickAdminAnswer extends Page
                         ->label('سال ۱۴۰۱')
                         ->numeric()
                         ->minValue(0)
-                        ->maxValue(100)
+                        ->maxValue(DefaultConst::maxInput)
                         ->reactive()
                         ,
                     TextInput::make('q2_8_1402')
                         ->label('سال ۱۴۰۲')
                         ->numeric()
                         ->minValue(0)
-                        ->maxValue(100)
+                        ->maxValue(DefaultConst::maxInput)
                         ->reactive()
                         ,
                 ])->columns(2),
@@ -236,14 +236,14 @@ class QuickAdminAnswer extends Page
                         ->label('سال ۱۴۰۱')
                         ->numeric()
                         ->minValue(0)
-                        ->maxValue(100)
+                        ->maxValue(DefaultConst::maxInput)
                         ->reactive()
                         ,
                     TextInput::make('q2_12_1402')
                         ->label('سال ۱۴۰۲')
                         ->numeric()
                         ->minValue(0)
-                        ->maxValue(100)
+                        ->maxValue(DefaultConst::maxInput)
                         ->reactive()
                         ,
                 ])->columns(2),
@@ -253,14 +253,14 @@ class QuickAdminAnswer extends Page
                         ->label('سال ۱۴۰۱')
                         ->numeric()
                         ->minValue(0)
-                        ->maxValue(100)
+                        ->maxValue(DefaultConst::maxInput)
                         ->reactive()
                         ,
                     TextInput::make('q2_13_1402')
                         ->label('سال ۱۴۰۲')
                         ->numeric()
                         ->minValue(0)
-                        ->maxValue(100)
+                        ->maxValue(DefaultConst::maxInput)
                         ->reactive()
                         ,
                 ])->columns(2),
@@ -270,14 +270,14 @@ class QuickAdminAnswer extends Page
                         ->label('سال ۱۴۰۱')
                         ->numeric()
                         ->minValue(0)
-                        ->maxValue(100)
+                        ->maxValue(DefaultConst::maxInput)
                         ->reactive()
                         ,
                     TextInput::make('q2_14_1402')
                         ->label('سال ۱۴۰۲')
                         ->numeric()
                         ->minValue(0)
-                        ->maxValue(100)
+                        ->maxValue(DefaultConst::maxInput)
                         ->reactive()
                         ,
                 ])->columns(2),
@@ -287,14 +287,14 @@ class QuickAdminAnswer extends Page
                         ->label('سال ۱۴۰۱')
                         ->numeric()
                         ->minValue(0)
-                        ->maxValue(100)
+                        ->maxValue(DefaultConst::maxInput)
                         ->reactive()
                         ,
                     TextInput::make('q2_15_1402')
                         ->label('سال ۱۴۰۲')
                         ->numeric()
                         ->minValue(0)
-                        ->maxValue(100)
+                        ->maxValue(DefaultConst::maxInput)
                         ->reactive()
                         ,
                 ])->columns(2),
@@ -304,14 +304,14 @@ class QuickAdminAnswer extends Page
                         ->label('سال ۱۴۰۱')
                         ->numeric()
                         ->minValue(0)
-                        ->maxValue(100)
+                        ->maxValue(DefaultConst::maxInput)
                         ->reactive()
                         ,
                     TextInput::make('q2_16_1_1402')
                         ->label('سال ۱۴۰۲')
                         ->numeric()
                         ->minValue(0)
-                        ->maxValue(100)
+                        ->maxValue(DefaultConst::maxInput)
                         ->reactive()
                         ,
                 ])->columns(2),
@@ -321,14 +321,14 @@ class QuickAdminAnswer extends Page
                         ->label('سال ۱۴۰۱')
                         ->numeric()
                         ->minValue(0)
-                        ->maxValue(100)
+                        ->maxValue(DefaultConst::maxInput)
                         ->reactive()
                         ,
                     TextInput::make('q2_16_2_1402')
                         ->label('سال ۱۴۰۲')
                         ->numeric()
                         ->minValue(0)
-                        ->maxValue(100)
+                        ->maxValue(DefaultConst::maxInput)
                         ->reactive()
                         ,
                 ])->columns(2),
@@ -338,14 +338,14 @@ class QuickAdminAnswer extends Page
                         ->label('سال ۱۴۰۱')
                         ->numeric()
                         ->minValue(0)
-                        ->maxValue(100)
+                        ->maxValue(DefaultConst::maxInput)
                         ->reactive()
                         ,
                     TextInput::make('q2_16_3_1402')
                         ->label('سال ۱۴۰۲')
                         ->numeric()
                         ->minValue(0)
-                        ->maxValue(100)
+                        ->maxValue(DefaultConst::maxInput)
                         ->reactive()
                         ,
                 ])->columns(2),
@@ -355,14 +355,14 @@ class QuickAdminAnswer extends Page
                         ->label('سال ۱۴۰۱')
                         ->numeric()
                         ->minValue(0)
-                        ->maxValue(100)
+                        ->maxValue(DefaultConst::maxInput)
                         ->reactive()
                         ,
                     TextInput::make('q2_17_1_1402')
                         ->label('سال ۱۴۰۲')
                         ->numeric()
                         ->minValue(0)
-                        ->maxValue(100)
+                        ->maxValue(DefaultConst::maxInput)
                         ->reactive()
                         ,
                 ])->columns(2),
@@ -372,14 +372,14 @@ class QuickAdminAnswer extends Page
                         ->label('سال ۱۴۰۱')
                         ->numeric()
                         ->minValue(0)
-                        ->maxValue(100)
+                        ->maxValue(DefaultConst::maxInput)
                         ->reactive()
                         ,
                     TextInput::make('q2_17_2_1402')
                         ->label('سال ۱۴۰۲')
                         ->numeric()
                         ->minValue(0)
-                        ->maxValue(100)
+                        ->maxValue(DefaultConst::maxInput)
                         ->reactive()
                         ,
                 ])->columns(2),
@@ -389,14 +389,14 @@ class QuickAdminAnswer extends Page
                         ->label('سال ۱۴۰۱')
                         ->numeric()
                         ->minValue(0)
-                        ->maxValue(100)
+                        ->maxValue(DefaultConst::maxInput)
                         ->reactive()
                         ,
                     TextInput::make('q2_17_3_1402')
                         ->label('سال ۱۴۰۲')
                         ->numeric()
                         ->minValue(0)
-                        ->maxValue(100)
+                        ->maxValue(DefaultConst::maxInput)
                         ->reactive()
                         ,
                 ])->columns(2),
@@ -406,14 +406,14 @@ class QuickAdminAnswer extends Page
                         ->label('سال ۱۴۰۱')
                         ->numeric()
                         ->minValue(0)
-                        ->maxValue(100)
+                        ->maxValue(DefaultConst::maxInput)
                         ->reactive()
                         ,
                     TextInput::make('q2_18_1402')
                         ->label('سال ۱۴۰۲')
                         ->numeric()
                         ->minValue(0)
-                        ->maxValue(100)
+                        ->maxValue(DefaultConst::maxInput)
                         ->reactive()
                         ,
                 ])->columns(2),
@@ -423,14 +423,14 @@ class QuickAdminAnswer extends Page
                         ->label('سال ۱۴۰۱')
                         ->numeric()
                         ->minValue(0)
-                        ->maxValue(100)
+                        ->maxValue(DefaultConst::maxInput)
                         ->reactive()
                         ,
                     TextInput::make('q2_19_1402')
                         ->label('سال ۱۴۰۲')
                         ->numeric()
                         ->minValue(0)
-                        ->maxValue(100)
+                        ->maxValue(DefaultConst::maxInput)
                         ->reactive()
                         ,
                 ])->columns(2),
@@ -440,14 +440,14 @@ class QuickAdminAnswer extends Page
                         ->label('سال ۱۴۰۱')
                         ->numeric()
                         ->minValue(0)
-                        ->maxValue(100)
+                        ->maxValue(DefaultConst::maxInput)
                         ->reactive()
                         ,
                     TextInput::make('q2_21_1402')
                         ->label('سال ۱۴۰۲')
                         ->numeric()
                         ->minValue(0)
-                        ->maxValue(100)
+                        ->maxValue(DefaultConst::maxInput)
                         ->reactive()
                         ,
                 ])->columns(2),
@@ -457,14 +457,14 @@ class QuickAdminAnswer extends Page
                         ->label('سال ۱۴۰۱')
                         ->numeric()
                         ->minValue(0)
-                        ->maxValue(100)
+                        ->maxValue(DefaultConst::maxInput)
                         ->reactive()
                         ,
                     TextInput::make('q2_22_1402')
                         ->label('سال ۱۴۰۲')
                         ->numeric()
                         ->minValue(0)
-                        ->maxValue(100)
+                        ->maxValue(DefaultConst::maxInput)
                         ->reactive()
                         ,
                 ])->columns(2),
@@ -474,14 +474,14 @@ class QuickAdminAnswer extends Page
                         ->label('سال ۱۴۰۱')
                         ->numeric()
                         ->minValue(0)
-                        ->maxValue(100)
+                        ->maxValue(DefaultConst::maxInput)
                         ->reactive()
                         ,
                     TextInput::make('q2_23_1402')
                         ->label('سال ۱۴۰۲')
                         ->numeric()
                         ->minValue(0)
-                        ->maxValue(100)
+                        ->maxValue(DefaultConst::maxInput)
                         ->reactive()
                         ,
                 ])->columns(2),
@@ -491,14 +491,14 @@ class QuickAdminAnswer extends Page
                         ->label('سال ۱۴۰۱')
                         ->numeric()
                         ->minValue(0)
-                        ->maxValue(100)
+                        ->maxValue(DefaultConst::maxInput)
                         ->reactive()
                         ,
                     TextInput::make('q2_30_1402')
                         ->label('سال ۱۴۰۲')
                         ->numeric()
                         ->minValue(0)
-                        ->maxValue(100)
+                        ->maxValue(DefaultConst::maxInput)
                         ->reactive()
                         ,
                 ])->columns(2),
@@ -508,14 +508,14 @@ class QuickAdminAnswer extends Page
                         ->label('سال ۱۴۰۱')
                         ->numeric()
                         ->minValue(0)
-                        ->maxValue(100)
+                        ->maxValue(DefaultConst::maxInput)
                         ->reactive()
                         ,
                     TextInput::make('q2_31_1402')
                         ->label('سال ۱۴۰۲')
                         ->numeric()
                         ->minValue(0)
-                        ->maxValue(100)
+                        ->maxValue(DefaultConst::maxInput)
                         ->reactive()
                         ,
                 ])->columns(2),
@@ -525,14 +525,14 @@ class QuickAdminAnswer extends Page
                         ->label('سال ۱۴۰۱')
                         ->numeric()
                         ->minValue(0)
-                        ->maxValue(100)
+                        ->maxValue(DefaultConst::maxInput)
                         ->reactive()
                         ,
                     TextInput::make('q2_32_1_1402')
                         ->label('سال ۱۴۰۲')
                         ->numeric()
                         ->minValue(0)
-                        ->maxValue(100)
+                        ->maxValue(DefaultConst::maxInput)
                         ->reactive()
                         ,
                 ])->columns(2),
@@ -542,14 +542,14 @@ class QuickAdminAnswer extends Page
                         ->label('سال ۱۴۰۱')
                         ->numeric()
                         ->minValue(0)
-                        ->maxValue(100)
+                        ->maxValue(DefaultConst::maxInput)
                         ->reactive()
                         ,
                     TextInput::make('q2_32_2_1402')
                         ->label('سال ۱۴۰۲')
                         ->numeric()
                         ->minValue(0)
-                        ->maxValue(100)
+                        ->maxValue(DefaultConst::maxInput)
                         ->reactive()
                         ,
                 ])->columns(2),
@@ -559,14 +559,14 @@ class QuickAdminAnswer extends Page
                         ->label('سال ۱۴۰۱')
                         ->numeric()
                         ->minValue(0)
-                        ->maxValue(100)
+                        ->maxValue(DefaultConst::maxInput)
                         ->reactive()
                         ,
                     TextInput::make('q2_32_3_1402')
                         ->label('سال ۱۴۰۲')
                         ->numeric()
                         ->minValue(0)
-                        ->maxValue(100)
+                        ->maxValue(DefaultConst::maxInput)
                         ->reactive()
                         ,
                 ])->columns(2),
@@ -576,14 +576,14 @@ class QuickAdminAnswer extends Page
                         ->label('سال ۱۴۰۱')
                         ->numeric()
                         ->minValue(0)
-                        ->maxValue(100)
+                        ->maxValue(DefaultConst::maxInput)
                         ->reactive()
                         ,
                     TextInput::make('q2_33_1_1402')
                         ->label('سال ۱۴۰۲')
                         ->numeric()
                         ->minValue(0)
-                        ->maxValue(100)
+                        ->maxValue(DefaultConst::maxInput)
                         ->reactive()
                         ,
                 ])->columns(2),
@@ -593,14 +593,14 @@ class QuickAdminAnswer extends Page
                         ->label('سال ۱۴۰۱')
                         ->numeric()
                         ->minValue(0)
-                        ->maxValue(100)
+                        ->maxValue(DefaultConst::maxInput)
                         ->reactive()
                         ,
                     TextInput::make('q2_33_2_1402')
                         ->label('سال ۱۴۰۲')
                         ->numeric()
                         ->minValue(0)
-                        ->maxValue(100)
+                        ->maxValue(DefaultConst::maxInput)
                         ->reactive()
                         ,
                 ])->columns(2),
@@ -610,14 +610,14 @@ class QuickAdminAnswer extends Page
                         ->label('سال ۱۴۰۱')
                         ->numeric()
                         ->minValue(0)
-                        ->maxValue(100)
+                        ->maxValue(DefaultConst::maxInput)
                         ->reactive()
                         ,
                     TextInput::make('q2_34_1_1402')
                         ->label('سال ۱۴۰۲')
                         ->numeric()
                         ->minValue(0)
-                        ->maxValue(100)
+                        ->maxValue(DefaultConst::maxInput)
                         ->reactive()
                         ,
                 ])->columns(2),
@@ -627,14 +627,14 @@ class QuickAdminAnswer extends Page
                         ->label('سال ۱۴۰۱')
                         ->numeric()
                         ->minValue(0)
-                        ->maxValue(100)
+                        ->maxValue(DefaultConst::maxInput)
                         ->reactive()
                         ,
                     TextInput::make('q2_34_2_1402')
                         ->label('سال ۱۴۰۲')
                         ->numeric()
                         ->minValue(0)
-                        ->maxValue(100)
+                        ->maxValue(DefaultConst::maxInput)
                         ->reactive()
                         ,
                 ])->columns(2),
@@ -644,14 +644,14 @@ class QuickAdminAnswer extends Page
                         ->label('سال ۱۴۰۱')
                         ->numeric()
                         ->minValue(0)
-                        ->maxValue(100)
+                        ->maxValue(DefaultConst::maxInput)
                         ->reactive()
                         ,
                     TextInput::make('q2_35_1402')
                         ->label('سال ۱۴۰۲')
                         ->numeric()
                         ->minValue(0)
-                        ->maxValue(100)
+                        ->maxValue(DefaultConst::maxInput)
                         ->reactive()
                         ,
                 ])->columns(2),
@@ -661,14 +661,14 @@ class QuickAdminAnswer extends Page
                         ->label('سال ۱۴۰۱')
                         ->numeric()
                         ->minValue(0)
-                        ->maxValue(100)
+                        ->maxValue(DefaultConst::maxInput)
                         ->reactive()
                         ,
                     TextInput::make('q2_39_1402')
                         ->label('سال ۱۴۰۲')
                         ->numeric()
                         ->minValue(0)
-                        ->maxValue(100)
+                        ->maxValue(DefaultConst::maxInput)
                         ->reactive()
                         ,
                 ])->columns(2),

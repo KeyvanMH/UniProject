@@ -95,7 +95,7 @@ class AdminsAnswer extends Page implements HasForms
                         ->label('سال ۱۴۰۱')
                         ->numeric()
                         ->minValue(0)
-                        ->maxValue(100)
+                        ->maxValue(DefaultConst::maxInput)
                         ->reactive()
                         ->required(),
 
@@ -103,7 +103,7 @@ class AdminsAnswer extends Page implements HasForms
                         ->label('سال ۱۴۰۲')
                         ->numeric()
                         ->minValue(0)
-                        ->maxValue(100)
+                        ->maxValue(DefaultConst::maxInput)
                         ->reactive()
                         ->required(),
                 ])->columns(2)
